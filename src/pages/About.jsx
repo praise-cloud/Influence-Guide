@@ -126,7 +126,7 @@ const About = () => {
                 </p>
                 <p className="mt-4 text-base text-gray-600">
                   Jane is responsible for our marketing strategies and ensuring
-                  our clients' success.
+                  our client success.
                 </p>
               </div>
             </div>
