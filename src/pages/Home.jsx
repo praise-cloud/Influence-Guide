@@ -1,13 +1,26 @@
-// import React from "react";
+import { useState } from "react";
 import { stats, statsNumbers } from "../constant/stats";
 import faqs from "../constant/faqs";
 import services from "../constant/services";
-import { Disclosure } from "@headlessui/react";
+import { Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import SignUpModal from "../components/SignUpModal";
+import LoginModal from "../components/LoginModal";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const openSignUpModal = () => setIsSignUpModalOpen(true);
+  const closeSignUpModal = () => setIsSignUpModalOpen(false);
+
+  const openLoginModal = () => setIsLoginModalOpen(true);
+  const closeLoginModal = () => setIsLoginModalOpen(false);
+
   return (
     <div>
+      <Navbar openLoginModal={openLoginModal} />
       {/* Hero section */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
@@ -41,14 +54,14 @@ const Home = () => {
               lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
+              <button
+                onClick={openSignUpModal}
                 className="rounded-md bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get started
-              </a>
+              </button>
               <a
-                href="#"
+                href="/about"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Learn more <span aria-hidden="true">→</span>
@@ -75,10 +88,7 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
             {stats.map((stat) => (
-              <div
-                key={stat.id}
-                className="mx-auto flex max-w-xs flex-col gap-y-4"
-              >
+              <div key={stat.id} className="flex flex-col items-center">
                 <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
                 <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                   {stat.value}
@@ -104,6 +114,9 @@ const Home = () => {
                 key={service.title}
                 className="bg-white rounded-lg shadow-lg p-6"
               >
+                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 mx-auto mb-4">
+                  <service.icon className="h-8 w-8 text-indigo-600" />
+                </div>
                 <h3 className="text-lg font-medium text-gray-900">
                   {service.title}
                 </h3>
@@ -119,12 +132,9 @@ const Home = () => {
       {/* Stats Numbers section */}
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-5">
+          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4">
             {statsNumbers.map((statsNumber) => (
-              <div
-                key={statsNumber.id}
-                className="mx-auto flex max-w-xs flex-col gap-y-4"
-              >
+              <div key={statsNumber.id} className="flex flex-col items-center">
                 <dt className="text-base leading-7 text-gray-600">
                   {statsNumber.name}
                 </dt>
@@ -148,12 +158,12 @@ const Home = () => {
           </h2>
           <div className="mt-8 flex justify-center gap-3">
             <div className="inline-flex rounded-md shadow">
-              <a
-                href="#"
+              <button
+                onClick={openSignUpModal}
                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-50"
               >
                 Sign up for free
-              </a>
+              </button>
             </div>
             <div className="inline-flex rounded-md shadow">
               <a
@@ -187,9 +197,19 @@ const Home = () => {
                           } h-5 w-5 text-gray-500`}
                         />
                       </Disclosure.Button>
-                      <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-gray-600">
-                        {faq.answer}
-                      </Disclosure.Panel>
+                      <Transition
+                        show={open}
+                        enter="transition duration-200 ease-out"
+                        enterFrom="transform scale-95 opacity-0"
+                        enterTo="transform scale-100 opacity-100"
+                        leave="transition duration-200 ease-in"
+                        leaveFrom="transform scale-100 opacity-100"
+                        leaveTo="transform scale-95 opacity-0"
+                      >
+                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-base text-gray-600">
+                          {faq.answer}
+                        </Disclosure.Panel>
+                      </Transition>
                     </>
                   )}
                 </Disclosure>
@@ -198,6 +218,10 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Sign Up Modal */}
+      <SignUpModal isOpen={isSignUpModalOpen} closeModal={closeSignUpModal} />
+      <LoginModal isOpen={isLoginModalOpen} closeModal={closeLoginModal} />
     </div>
   );
 };

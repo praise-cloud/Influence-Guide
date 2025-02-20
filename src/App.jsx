@@ -23,8 +23,7 @@ const App = () => {
 
   return (
     <>
-      {loading && <LoadingScreen />}
-      <Layout />
+      {loading ? <LoadingScreen /> : <Layout />}
     </>
   );
 };

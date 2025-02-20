@@ -1,46 +1,42 @@
+
 const stats = [
   {
     id: 1,
-    name: "Users",
-    value: "1,200+",
+    name: "Influencers",
+    value: "1,500+",
   },
   {
     id: 2,
-    name: "Countries",
-    value: "100+",
+    name: "ROI",
+    value: "200%",
   },
   {
     id: 3,
-    name: "Companies",
-    value: "500+",
+    name: "Database",
+    value: "10M+",
   },
 ];
 
 const statsNumbers = [
   {
     id: 1,
-    name: "Users",
-    value: "1,200+",
+    name: "Active Users",
+    value: "5,000+",
   },
   {
     id: 2,
-    name: "Countries",
-    value: "100+",
+    name: "Total Companies",
+    value: "300+",
   },
   {
     id: 3,
-    name: "Companies",
-    value: "500+",
+    name: "Campaigns",
+    value: "1,200+",
   },
   {
     id: 4,
-    name: "Projects",
-    value: "1,000+",
-  },
-  {
-    id: 5,
-    name: "Revenue",
-    value: "$10M+",
+    name: "Customer Support",
+    value: "24/7",
   },
 ];
 
