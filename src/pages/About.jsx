@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import {
   CloudArrowUpIcon,
   LockClosedIcon,
@@ -120,7 +120,9 @@ const About = () => {
                 alt="Jane Smith"
               />
               <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-900">Jane Smith</h3>
+                <h3 className="text-lg font-medium text-gray-900">
+                  Jane Smith
+                </h3>
                 <p className="mt-2 text-sm text-gray-600">
                   Chief Marketing Officer
                 </p>
@@ -174,45 +176,61 @@ const About = () => {
               <div className="relative pl-16">
                 <dt className="text-base/7 font-semibold text-gray-900">
                   <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <CloudArrowUpIcon aria-hidden="true" className="size-6 text-white" />
+                    <CloudArrowUpIcon
+                      aria-hidden="true"
+                      className="size-6 text-white"
+                    />
                   </div>
                   Content Creation
                 </dt>
                 <dd className="mt-2 text-base/7 text-gray-600">
-                  We create engaging content tailored to your brand and audience.
+                  We create engaging content tailored to your brand and
+                  audience.
                 </dd>
               </div>
               <div className="relative pl-16">
                 <dt className="text-base/7 font-semibold text-gray-900">
                   <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <LockClosedIcon aria-hidden="true" className="size-6 text-white" />
+                    <LockClosedIcon
+                      aria-hidden="true"
+                      className="size-6 text-white"
+                    />
                   </div>
                   Account Management
                 </dt>
                 <dd className="mt-2 text-base/7 text-gray-600">
-                  We manage your social media accounts to ensure consistent and effective engagement.
+                  We manage your social media accounts to ensure consistent and
+                  effective engagement.
                 </dd>
               </div>
               <div className="relative pl-16">
                 <dt className="text-base/7 font-semibold text-gray-900">
                   <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <ArrowPathIcon aria-hidden="true" className="size-6 text-white" />
+                    <ArrowPathIcon
+                      aria-hidden="true"
+                      className="size-6 text-white"
+                    />
                   </div>
                   Analytics and Reporting
                 </dt>
                 <dd className="mt-2 text-base/7 text-gray-600">
-                  We provide detailed analytics and reports to track your social media performance.
+                  We provide detailed analytics and reports to track your social
+                  media performance.
                 </dd>
               </div>
               <div className="relative pl-16">
                 <dt className="text-base/7 font-semibold text-gray-900">
                   <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <FingerPrintIcon aria-hidden="true" className="size-6 text-white" />
+                    <FingerPrintIcon
+                      aria-hidden="true"
+                      className="size-6 text-white"
+                    />
                   </div>
                   Strategy Development
                 </dt>
                 <dd className="mt-2 text-base/7 text-gray-600">
-                  We develop customized social media strategies to help you achieve your goals.
+                  We develop customized social media strategies to help you
+                  achieve your goals.
                 </dd>
               </div>
             </dl>
