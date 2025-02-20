@@ -1,4 +1,5 @@
-import React from "react";
+// import React from "react";
+import PropTypes from "prop-types";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
@@ -123,6 +124,12 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
       </Dialog>
     </Transition>
   );
+};
+
+SignUpModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  openLoginModal: PropTypes.func.isRequired,
 };
 
 export default SignUpModal;
