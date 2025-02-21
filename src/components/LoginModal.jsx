@@ -1,10 +1,25 @@
-// import React from "react";
 import PropTypes from "prop-types";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (recaptchaValue) {
+      // Handle login logic here
+    } else {
+      alert("Please complete the reCAPTCHA verification.");
+    }
+  };
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -39,7 +54,7 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                   Login
                 </Dialog.Title>
                 <div className="mt-2">
-                  <form className="space-y-4">
+                  <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                       <label
                         htmlFor="email"
@@ -68,6 +83,12 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                         id="password"
                         required
                         className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
+                      />
+                    </div>
+                    <div className="mt-4">
+                      <ReCAPTCHA
+                        sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                        onChange={handleRecaptchaChange}
                       />
                     </div>
                     <div>

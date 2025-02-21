@@ -1,4 +1,27 @@
 import missionImage from "../assets/images/About Image.jpeg";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+const testimonials = [
+  {
+    name: "John Doe",
+    feedback: "Influencer Guide has transformed the way I manage my social media accounts. The tools are easy to use and the insights are invaluable.",
+    image: "https://i.pinimg.com/564x/1a/2b/3c/1a2b3c4d5e6f7g8h9i0j.jpg",
+  },
+  {
+    name: "Jane Smith",
+    feedback: "The customer support is fantastic! They helped me set up my account and get started with the platform in no time.",
+    image: "https://i.pinimg.com/564x/2b/3c/4d/2b3c4d5e6f7g8h9i0j1k.jpg",
+  },
+  {
+    name: "Alice Johnson",
+    feedback: "I love the analytics feature. It gives me a clear picture of how my posts are performing and helps me make data-driven decisions.",
+    image: "https://i.pinimg.com/564x/3c/4d/5e/3c4d5e6f7g8h9i0j1k2l.jpg",
+  },
+];
+
 const About = () => {
   return (
     <div>
@@ -78,7 +101,7 @@ const About = () => {
                 Customer Success
               </h3>
               <p className="mt-4 text-base text-gray-600">
-                Our users' success is our success. We are dedicated to providing
+                Our users success is our success. We are dedicated to providing
                 exceptional support and resources to help you achieve your
                 goals.
               </p>
@@ -93,7 +116,7 @@ const About = () => {
           <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Our Story
           </h2>
-          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600 px-5">
             Influencer Guide was founded with the vision of making social media
             management accessible and effective for everyone. Our journey began
             with a small team of passionate individuals who saw the potential of
@@ -104,17 +127,37 @@ const About = () => {
         </div>
       </div>
 
-      {/* Contact Us section */}
+      {/* Testimonial section */}
       <div className="bg-gray-50 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Contact Us
+            What Our Users Say
           </h2>
-          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
-            Have questions or need assistance? Our team is here to help. Reach
-            out to us at support@influencerguide.com or call us at (123)
-            456-7890.
-          </p>
+          <Carousel
+            showArrows={true}
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop={true}
+            autoPlay={true}
+            interval={5000}
+            className="mt-10"
+          >
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="text-center bg-white rounded-lg shadow-lg p-6">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="mx-auto rounded-full w-24 h-24 object-cover"
+                />
+                <p className="mt-4 text-lg leading-8 text-gray-600">
+                  {testimonial.feedback}
+                </p>
+                <p className="mt-2 text-lg font-medium text-gray-900">
+                  {testimonial.name}
+                </p>
+              </div>
+            ))}
+          </Carousel>
         </div>
       </div>
 
@@ -148,7 +191,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* <Footer /> */}
     </div>
   );
 };

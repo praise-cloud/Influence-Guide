@@ -5,6 +5,7 @@ import navigationItems from "../constant/NavigationItems";
 
 const Navbar = ({ openLoginModal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <>
       <header className="absolute inset-x-0 top-0 z-50">
@@ -43,7 +44,7 @@ const Navbar = ({ openLoginModal }) => {
               </a>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-4">
             <button
               onClick={openLoginModal}
               className="text-sm/6 font-semibold text-gray-900"
