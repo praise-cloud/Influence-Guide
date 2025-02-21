@@ -2,29 +2,14 @@ import missionImage from "../assets/images/About Image.jpeg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Carousel } from "react-responsive-carousel";
+import { CheckCircleIcon, ChartBarIcon, UsersIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-const testimonials = [
-  {
-    name: "John Doe",
-    feedback: "Influencer Guide has transformed the way I manage my social media accounts. The tools are easy to use and the insights are invaluable.",
-    image: "https://i.pinimg.com/564x/1a/2b/3c/1a2b3c4d5e6f7g8h9i0j.jpg",
-  },
-  {
-    name: "Jane Smith",
-    feedback: "The customer support is fantastic! They helped me set up my account and get started with the platform in no time.",
-    image: "https://i.pinimg.com/564x/2b/3c/4d/2b3c4d5e6f7g8h9i0j1k.jpg",
-  },
-  {
-    name: "Alice Johnson",
-    feedback: "I love the analytics feature. It gives me a clear picture of how my posts are performing and helps me make data-driven decisions.",
-    image: "https://i.pinimg.com/564x/3c/4d/5e/3c4d5e6f7g8h9i0j1k2l.jpg",
-  },
-];
+import { missionPoints, testimonials } from "../constant/about";
 
 const About = () => {
   return (
     <div>
+      <Navbar />
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
@@ -64,6 +49,14 @@ const About = () => {
               with the right tools and strategies, anyone can build a strong
               online presence and achieve their goals.
             </p>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {missionPoints.map((point, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  <point.icon className="h-6 w-6 text-indigo-600" />
+                  <p className="text-lg leading-8 text-gray-600">{point.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="mt-10 lg:mt-0 lg:w-1/2 lg:pl-10">
             <img
@@ -83,6 +76,7 @@ const About = () => {
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <div className="bg-white rounded-lg shadow-lg p-6">
+              <CheckCircleIcon className="h-6 w-6 text-indigo-600 mb-4" />
               <h3 className="text-lg font-medium text-gray-900">Innovation</h3>
               <p className="mt-4 text-base text-gray-600">
                 We are committed to staying ahead of the curve and continuously
@@ -90,6 +84,7 @@ const About = () => {
               </p>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6">
+              <ChartBarIcon className="h-6 w-6 text-indigo-600 mb-4" />
               <h3 className="text-lg font-medium text-gray-900">Integrity</h3>
               <p className="mt-4 text-base text-gray-600">
                 We believe in conducting our business with honesty and
@@ -97,6 +92,7 @@ const About = () => {
               </p>
             </div>
             <div className="bg-white rounded-lg shadow-lg p-6">
+              <UsersIcon className="h-6 w-6 text-indigo-600 mb-4" />
               <h3 className="text-lg font-medium text-gray-900">
                 Customer Success
               </h3>
@@ -191,6 +187,7 @@ const About = () => {
         </div>
       </div>
 
+      <Footer />
     </div>
   );
 };
