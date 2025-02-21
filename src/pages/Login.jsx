@@ -14,7 +14,10 @@ const Login = () => {
         <div className="mt-10 max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
           <form action="#" method="POST" className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email
               </label>
               <div className="mt-1">
@@ -28,7 +31,10 @@ const Login = () => {
               </div>
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <div className="mt-1">

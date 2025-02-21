@@ -25,7 +25,10 @@ const Contact = () => {
         <div className="mt-10 max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
           <form action="#" method="POST" className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Name
               </label>
               <div className="mt-1">
@@ -39,7 +42,10 @@ const Contact = () => {
               </div>
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email
               </label>
               <div className="mt-1">
@@ -53,7 +59,10 @@ const Contact = () => {
               </div>
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Message
               </label>
               <div className="mt-1">

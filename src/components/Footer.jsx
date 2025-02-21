@@ -51,22 +51,34 @@ const Footer = () => {
               <h2 className="text-xl font-semibold">Follow Us</h2>
               <ul className="mt-2 space-y-2">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white flex items-center"
+                  >
                     <FaFacebook className="mr-2" /> Facebook
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white flex items-center"
+                  >
                     <FaTwitter className="mr-2" /> Twitter
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white flex items-center"
+                  >
                     <FaInstagram className="mr-2" /> Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white flex items-center">
+                  <a
+                    href="#"
+                    className="text-gray-400 hover:text-white flex items-center"
+                  >
                     <FaLinkedin className="mr-2" /> LinkedIn
                   </a>
                 </li>

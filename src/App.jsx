@@ -21,11 +21,7 @@ const App = () => {
     };
   }, [location]);
 
-  return (
-    <>
-      {loading ? <LoadingScreen /> : <Layout />}
-    </>
-  );
+  return <>{loading ? <LoadingScreen /> : <Layout />}</>;
 };
 
 export default App;

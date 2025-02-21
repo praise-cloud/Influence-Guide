@@ -1,15 +1,7 @@
-// import React from "react";
-import {
-  CloudArrowUpIcon,
-  LockClosedIcon,
-  ArrowPathIcon,
-  FingerPrintIcon,
-} from "@heroicons/react/24/outline";
-
+import missionImage from "../assets/images/About Image.jpeg";
 const About = () => {
   return (
     <div>
-      {/* Hero section */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
@@ -20,223 +12,143 @@ const About = () => {
               clipPath:
                 "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
             }}
-            className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="text-center">
-            <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">
-              About Our Company
-            </h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-              We are dedicated to helping you manage and grow your online
-              presence with our comprehensive social media management services.
-            </p>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        >
-          <div
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          />
+        <div className="mx-auto max-w-7xl py-24 sm:py-32 lg:py-40">
+          <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl text-center">
+            About Influencer Guide
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-gray-600 text-center">
+            Influencer Guide is a comprehensive social media management platform
+            designed to help you grow and manage your online presence
+            effectively. Our mission is to provide you with the tools and
+            insights you need to succeed in the digital world.
+          </p>
         </div>
       </div>
 
-      {/* Mission and Vision */}
+      {/* Our Mission section */}
       <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base/7 font-semibold text-indigo-600">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
+          <div className="lg:w-1/2">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Our Mission
             </h2>
-            <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">
-              Empowering Your Online Presence
-            </p>
-            <p className="mt-6 text-lg/8 text-gray-600">
-              Our mission is to provide top-notch social media management
-              services that help businesses grow their online presence and
-              engage with their audience effectively.
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              At Influencer Guide, our mission is to empower businesses and
+              individuals to harness the power of social media. We believe that
+              with the right tools and strategies, anyone can build a strong
+              online presence and achieve their goals.
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-            <h2 className="text-base/7 font-semibold text-indigo-600">
-              Our Vision
-            </h2>
-            <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">
-              Leading the Way in Social Media Management
-            </p>
-            <p className="mt-6 text-lg/8 text-gray-600">
-              We envision a world where businesses of all sizes can leverage the
-              power of social media to achieve their goals and connect with
-              their customers in meaningful ways.
-            </p>
+          <div className="mt-10 lg:mt-0 lg:w-1/2 lg:pl-10">
+            <img
+              src={missionImage}
+              alt="Our Mission"
+              className="w-full h-auto rounded-lg shadow-lg object-cover"
+            />
           </div>
         </div>
       </div>
 
-      {/* Our Team */}
+      {/* Our Values section */}
       <div className="bg-gray-50 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base/7 font-semibold text-indigo-600">
-              Meet Our Team
-            </h2>
-            <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">
-              Dedicated Professionals
-            </p>
-            <p className="mt-6 text-lg/8 text-gray-600">
-              Our team of experts is passionate about social media and committed
-              to helping you succeed.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-8 sm:mt-16 lg:grid-cols-3">
-            {/* Team Member 1 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img
-                className="w-full h-56 object-cover"
-                src="https://via.placeholder.com/150"
-                alt="John Doe"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-900">John Doe</h3>
-                <p className="mt-2 text-sm text-gray-600">CEO & Founder</p>
-                <p className="mt-4 text-base text-gray-600">
-                  John is the visionary behind our company, leading the team
-                  with passion and dedication.
-                </p>
-              </div>
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Our Values
+          </h2>
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-medium text-gray-900">Innovation</h3>
+              <p className="mt-4 text-base text-gray-600">
+                We are committed to staying ahead of the curve and continuously
+                improving our platform to meet the evolving needs of our users.
+              </p>
             </div>
-            {/* Team Member 2 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img
-                className="w-full h-56 object-cover"
-                src="https://via.placeholder.com/150"
-                alt="Jane Smith"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-900">
-                  Jane Smith
-                </h3>
-                <p className="mt-2 text-sm text-gray-600">
-                  Chief Marketing Officer
-                </p>
-                <p className="mt-4 text-base text-gray-600">
-                  Jane is responsible for our marketing strategies and ensuring
-                  our client success.
-                </p>
-              </div>
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-medium text-gray-900">Integrity</h3>
+              <p className="mt-4 text-base text-gray-600">
+                We believe in conducting our business with honesty and
+                transparency, building trust with our users and partners.
+              </p>
             </div>
-            {/* Team Member 3 */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <img
-                className="w-full h-56 object-cover"
-                src="https://via.placeholder.com/150"
-                alt="Michael Johnson"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-900">
-                  Michael Johnson
-                </h3>
-                <p className="mt-2 text-sm text-gray-600">
-                  Head of Development
-                </p>
-                <p className="mt-4 text-base text-gray-600">
-                  Michael leads our development team, ensuring our platform is
-                  cutting-edge and reliable.
-                </p>
-              </div>
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-medium text-gray-900">
+                Customer Success
+              </h3>
+              <p className="mt-4 text-base text-gray-600">
+                Our users' success is our success. We are dedicated to providing
+                exceptional support and resources to help you achieve your
+                goals.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Our Services */}
+      {/* Our Story section */}
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base/7 font-semibold text-indigo-600">
-              Our Services
-            </h2>
-            <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">
-              Comprehensive Social Media Management
-            </p>
-            <p className="mt-6 text-lg/8 text-gray-600">
-              We offer a range of services to help you manage and grow your
-              social media presence.
-            </p>
-          </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-              <div className="relative pl-16">
-                <dt className="text-base/7 font-semibold text-gray-900">
-                  <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <CloudArrowUpIcon
-                      aria-hidden="true"
-                      className="size-6 text-white"
-                    />
-                  </div>
-                  Content Creation
-                </dt>
-                <dd className="mt-2 text-base/7 text-gray-600">
-                  We create engaging content tailored to your brand and
-                  audience.
-                </dd>
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Our Story
+          </h2>
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+            Influencer Guide was founded with the vision of making social media
+            management accessible and effective for everyone. Our journey began
+            with a small team of passionate individuals who saw the potential of
+            social media to transform businesses and lives. Today, we are proud
+            to serve thousands of users worldwide, helping them navigate the
+            complexities of the digital landscape.
+          </p>
+        </div>
+      </div>
+
+      {/* Contact Us section */}
+      <div className="bg-gray-50 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Contact Us
+          </h2>
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+            Have questions or need assistance? Our team is here to help. Reach
+            out to us at support@influencerguide.com or call us at (123)
+            456-7890.
+          </p>
+        </div>
+      </div>
+
+      {/* Newsletter Sign-Up section */}
+      <div className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Stay Updated
+          </h2>
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+            Subscribe to our newsletter to get the latest updates and insights.
+          </p>
+          <div className="mt-10 flex justify-center">
+            <form className="w-full max-w-md">
+              <div className="flex items-center border-b border-gray-300 py-2">
+                <input
+                  className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                  type="email"
+                  placeholder="Enter your email"
+                  aria-label="Email"
+                />
+                <button
+                  className="flex-shrink-0 bg-indigo-600 hover:bg-indigo-700 border-indigo-600 hover:border-indigo-700 text-sm border-4 text-white py-1 px-2 rounded"
+                  type="submit"
+                >
+                  Subscribe
+                </button>
               </div>
-              <div className="relative pl-16">
-                <dt className="text-base/7 font-semibold text-gray-900">
-                  <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <LockClosedIcon
-                      aria-hidden="true"
-                      className="size-6 text-white"
-                    />
-                  </div>
-                  Account Management
-                </dt>
-                <dd className="mt-2 text-base/7 text-gray-600">
-                  We manage your social media accounts to ensure consistent and
-                  effective engagement.
-                </dd>
-              </div>
-              <div className="relative pl-16">
-                <dt className="text-base/7 font-semibold text-gray-900">
-                  <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <ArrowPathIcon
-                      aria-hidden="true"
-                      className="size-6 text-white"
-                    />
-                  </div>
-                  Analytics and Reporting
-                </dt>
-                <dd className="mt-2 text-base/7 text-gray-600">
-                  We provide detailed analytics and reports to track your social
-                  media performance.
-                </dd>
-              </div>
-              <div className="relative pl-16">
-                <dt className="text-base/7 font-semibold text-gray-900">
-                  <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
-                    <FingerPrintIcon
-                      aria-hidden="true"
-                      className="size-6 text-white"
-                    />
-                  </div>
-                  Strategy Development
-                </dt>
-                <dd className="mt-2 text-base/7 text-gray-600">
-                  We develop customized social media strategies to help you
-                  achieve your goals.
-                </dd>
-              </div>
-            </dl>
+            </form>
           </div>
         </div>
       </div>
+
+      {/* <Footer /> */}
     </div>
   );
 };

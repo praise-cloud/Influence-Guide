@@ -1,4 +1,3 @@
-
 const stats = [
   {
     id: 1,

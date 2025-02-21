@@ -18,7 +18,8 @@ const Blog = () => {
           Our Blog
         </h2>
         <p className="mt-4 text-center text-lg leading-8 text-gray-600">
-          Stay updated with the latest trends and tips in social media marketing.
+          Stay updated with the latest trends and tips in social media
+          marketing.
         </p>
 
         {/* Recent Posts Carousel */}
@@ -64,8 +65,12 @@ const Blog = () => {
                   className="h-48 w-full object-cover rounded-t-lg"
                 />
                 <div className="mt-4">
-                  <h3 className="text-lg font-medium text-gray-900">{blog.title}</h3>
-                  <p className="mt-2 text-base text-gray-600">{blog.description}</p>
+                  <h3 className="text-lg font-medium text-gray-900">
+                    {blog.title}
+                  </h3>
+                  <p className="mt-2 text-base text-gray-600">
+                    {blog.description}
+                  </p>
                   <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
                     <span>{blog.date}</span>
                     <span>by {blog.author}</span>
@@ -90,8 +95,12 @@ const Blog = () => {
                   className="h-48 w-full object-cover rounded-t-lg"
                 />
                 <div className="mt-4">
-                  <h3 className="text-lg font-medium text-gray-900">{blog.title}</h3>
-                  <p className="mt-2 text-base text-gray-600">{blog.description}</p>
+                  <h3 className="text-lg font-medium text-gray-900">
+                    {blog.title}
+                  </h3>
+                  <p className="mt-2 text-base text-gray-600">
+                    {blog.description}
+                  </p>
                   <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
                     <span>{blog.date}</span>
                     <span>by {blog.author}</span>

@@ -2,11 +2,15 @@ import { useState } from "react";
 import { stats, statsNumbers } from "../constant/stats";
 import faqs from "../constant/faqs";
 import services from "../constant/services";
+import blogs from "../constant/blogs";
 import { Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import SignUpModal from "../components/SignUpModal";
 import LoginModal from "../components/LoginModal";
 import Navbar from "../components/Navbar";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import heroImage from "../assets/images/Bento grid v2_0.jpeg"; // Import the hero image
 
 const Home = () => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
@@ -35,38 +39,36 @@ const Home = () => {
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Announcing our next round of funding.{" "}
-              <a href="#" className="font-semibold text-indigo-600">
-                <span className="absolute inset-0" aria-hidden="true" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </div>
-          <div className="text-center">
+        <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-56 lg:flex lg:items-center lg:justify-between">
+          <div className="lg:w-1/2">
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">
-              Data to enrich your online business
+              Elevate Your Social Media Presence
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.
+              Unlock the full potential of your social media channels with our
+              comprehensive management tools and insights.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 flex items-center gap-x-6">
               <button
                 onClick={openSignUpModal}
                 className="rounded-md bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Get started
+                Get Started
               </button>
               <a
                 href="/about"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
-                Learn more <span aria-hidden="true">→</span>
+                Learn More <span aria-hidden="true">→</span>
               </a>
             </div>
+          </div>
+          <div className="mt-10 lg:mt-0 lg:w-1/2 lg:pl-10">
+            <img
+              src={heroImage}
+              alt="Hero"
+              className="w-full h-auto rounded-lg shadow-lg object-cover transform transition-transform duration-500 hover:scale-105 hover:rotate-2"
+            />
           </div>
         </div>
         <div
@@ -86,10 +88,18 @@ const Home = () => {
       {/* Stats section */}
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Our Impact
+          </h2>
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+            Discover how our platform has helped businesses grow and succeed.
+          </p>
+          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3 mt-10">
             {stats.map((stat) => (
               <div key={stat.id} className="flex flex-col items-center">
-                <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
+                <dt className="text-base leading-7 text-gray-600">
+                  {stat.name}
+                </dt>
                 <dd className="order-first text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                   {stat.value}
                 </dd>
@@ -108,11 +118,16 @@ const Home = () => {
           <p className="mx-auto mt-2 max-w-lg text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Comprehensive Social Media Management
           </p>
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+            Our platform includes features such as performance monitoring,
+            security tools, mobile-friendly design, and powerful APIs to help
+            you manage and grow your online presence.
+          </p>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <div
                 key={service.title}
-                className="bg-white rounded-lg shadow-lg p-6"
+                className="bg-white rounded-lg shadow-lg p-6 transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
               >
                 <div className="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 mx-auto mb-4">
                   <service.icon className="h-8 w-8 text-indigo-600" />
@@ -129,10 +144,83 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Recent Blog Posts section */}
+      <div className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Recent Blog Posts
+          </h2>
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+            Stay updated with the latest trends and tips in social media
+            management.
+          </p>
+          <div className="mt-10">
+            <Carousel
+              showThumbs={false}
+              showStatus={false}
+              infiniteLoop
+              autoPlay
+              renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                hasPrev && (
+                  <button
+                    type="button"
+                    onClick={onClickHandler}
+                    title={label}
+                    className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
+                  >
+                    &#9664;
+                  </button>
+                )
+              }
+              renderArrowNext={(onClickHandler, hasNext, label) =>
+                hasNext && (
+                  <button
+                    type="button"
+                    onClick={onClickHandler}
+                    title={label}
+                    className="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
+                  >
+                    &#9654;
+                  </button>
+                )
+              }
+            >
+              {blogs.slice(0, 3).map((blog) => (
+                <div key={blog.id} className="p-4">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="h-48 w-full object-cover rounded-t-lg"
+                  />
+                  <div className="mt-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      {blog.title}
+                    </h3>
+                    <p className="mt-2 text-base text-gray-600">
+                      {blog.description}
+                    </p>
+                    <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
+                      <span>{blog.date}</span>
+                      <span>by {blog.author}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        </div>
+      </div>
+
       {/* Stats Numbers section */}
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Our Achievements
+          </h2>
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+            See the numbers that showcase our success.
+          </p>
+          <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-4 mt-10">
             {statsNumbers.map((statsNumber) => (
               <div key={statsNumber.id} className="flex flex-col items-center">
                 <dt className="text-base leading-7 text-gray-600">
@@ -167,7 +255,7 @@ const Home = () => {
             </div>
             <div className="inline-flex rounded-md shadow">
               <a
-                href="#"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-500 px-5 py-3 text-base font-medium text-white hover:bg-indigo-400"
               >
                 Contact us
@@ -183,6 +271,9 @@ const Home = () => {
           <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Frequently Asked Questions
           </h2>
+          <p className="mt-4 text-center text-lg leading-8 text-gray-600">
+            Find answers to the most common questions about our platform.
+          </p>
           <div className="mt-10">
             <dl className="space-y-6">
               {faqs.map((faq) => (
@@ -220,8 +311,16 @@ const Home = () => {
       </div>
 
       {/* Sign Up Modal */}
-      <SignUpModal isOpen={isSignUpModalOpen} closeModal={closeSignUpModal} />
-      <LoginModal isOpen={isLoginModalOpen} closeModal={closeLoginModal} />
+      <SignUpModal
+        isOpen={isSignUpModalOpen}
+        closeModal={closeSignUpModal}
+        openLoginModal={openLoginModal}
+      />
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        closeModal={closeLoginModal}
+        openSignUpModal={openSignUpModal}
+      />
     </div>
   );
 };
