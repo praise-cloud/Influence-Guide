@@ -9,6 +9,8 @@ import Contact from "./pages/Contact.jsx";
 import Services from "./pages/Services.jsx";
 import Blog from "./pages/Blog.jsx";
 import Account from "./pages/Account.jsx";
+import Checkout from "./pages/Checkout.jsx";
+import Login from "./pages/Login.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,6 +23,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="services" element={<Services />} />
           <Route path="blog" element={<Blog />} />
           <Route path="account" element={<Account />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="login" element={<Login />} />
         </Route>
       </Routes>
     </Router>

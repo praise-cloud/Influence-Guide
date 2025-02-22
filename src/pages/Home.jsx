@@ -1,13 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { stats, statsNumbers } from "../constant/stats";
 import faqs from "../constant/faqs";
-import services from "../constant/services";
+import { homeServices } from "../constant/services";
 import blogs from "../constant/blogs";
 import { Disclosure, Transition } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import SignUpModal from "../components/SignUpModal";
 import LoginModal from "../components/LoginModal";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import heroImage from "../assets/images/Bento grid v2_0.jpeg"; // Import the hero image
@@ -15,12 +17,22 @@ import heroImage from "../assets/images/Bento grid v2_0.jpeg"; // Import the her
 const Home = () => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate user login status
+  const navigate = useNavigate();
 
   const openSignUpModal = () => setIsSignUpModalOpen(true);
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
 
   const openLoginModal = () => setIsLoginModalOpen(true);
   const closeLoginModal = () => setIsLoginModalOpen(false);
+
+  const handleCheckout = () => {
+    if (isLoggedIn) {
+      navigate("/checkout");
+    } else {
+      openLoginModal();
+    }
+  };
 
   return (
     <div>
@@ -51,7 +63,7 @@ const Home = () => {
             <div className="mt-10 flex items-center gap-x-6">
               <button
                 onClick={openSignUpModal}
-                className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get Started
               </button>
@@ -124,7 +136,7 @@ const Home = () => {
             you manage and grow your online presence.
           </p>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+            {homeServices.map((service) => (
               <div
                 key={service.title}
                 className="bg-white rounded-lg shadow-lg p-6 transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
@@ -309,6 +321,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
 
       {/* Sign Up Modal */}
       <SignUpModal

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import AccountImage from "../assets/images/Account Image.jpeg"; // Import the account image
 
 const Account = () => {
@@ -36,7 +34,7 @@ const Account = () => {
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or{" "}
                 <a
-                  href="/signup"
+                  href="/login"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Sign in to your account
@@ -150,7 +148,7 @@ const Account = () => {
                 type="button"
                 className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                <FaGoogle className="mr-2" /> Sign in with Google
+                <FaGoogle className="mr-2" /> Sign up with Google
               </button>
             </div>
             <div className="mt-2">
@@ -158,7 +156,7 @@ const Account = () => {
                 type="button"
                 className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                <FaFacebook className="mr-2" /> Sign in with Facebook
+                <FaFacebook className="mr-2" /> Sign up with Facebook
               </button>
             </div>
           </div>

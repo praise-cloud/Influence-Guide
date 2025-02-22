@@ -87,7 +87,7 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                     </div>
                     <div className="mt-4">
                       <ReCAPTCHA
-                        sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                        sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
                         onChange={handleRecaptchaChange}
                       />
                     </div>
@@ -119,7 +119,7 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                 </div>
                 <div className="mt-4 text-center">
                   <p className="text-sm text-gray-600">
-                    Don't have an account?{" "}
+                    Do not have an account? {""}
                     <button
                       type="button"
                       onClick={() => {

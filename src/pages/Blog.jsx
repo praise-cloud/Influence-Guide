@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import blogs from "../constant/blogs";
+// import Navbar from "../components/Navbar
 
 const Blog = () => {
   const [visibleBlogs, setVisibleBlogs] = useState(3);

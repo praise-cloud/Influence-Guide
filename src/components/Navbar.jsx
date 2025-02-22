@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import navigationItems from "../constant/NavigationItems";
@@ -109,6 +110,9 @@ const Navbar = ({ openLoginModal }) => {
       </header>
     </>
   );
+};
+Navbar.propTypes = {
+  openLoginModal: PropTypes.func.isRequired,
 };
 
 export default Navbar;

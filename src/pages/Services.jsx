@@ -1,13 +1,23 @@
 import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { Disclosure, Transition, Listbox } from "@headlessui/react";
-import { ChevronUpIcon, ChevronDownIcon, HeartIcon, ShoppingCartIcon, CheckIcon } from "@heroicons/react/20/solid";
-import services from "../constant/services";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+  HeartIcon,
+  ShoppingCartIcon,
+  CheckIcon,
+} from "@heroicons/react/20/solid";
+import {services} from "../constant/services";
 import heroImage from "../assets/images/Bento grid v2_0.jpeg"; // Import the hero image
 
-const categories = ["All", "Social Media Management", "Content Creation", "Analytics", "Marketing"];
+const categories = [
+  "All",
+  "Social Media Management",
+  "Content Creation",
+  "Analytics",
+  "Marketing",
+];
 
 const Services = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -34,7 +44,6 @@ const Services = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
@@ -54,7 +63,8 @@ const Services = () => {
               Our Services
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Discover the wide range of services we offer to help you manage and grow your online presence.
+              Discover the wide range of services we offer to help you manage
+              and grow your online presence.
             </p>
           </div>
           <div className="mt-10 lg:mt-0 lg:w-1/2 lg:pl-10">
@@ -97,7 +107,10 @@ const Services = () => {
                     <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white border border-gray-300 rounded-md shadow-sm cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                       <span className="block truncate">{selectedCategory}</span>
                       <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                        <ChevronDownIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
+                        <ChevronDownIcon
+                          className="w-5 h-5 text-gray-400"
+                          aria-hidden="true"
+                        />
                       </span>
                     </Listbox.Button>
                     <Transition
@@ -113,7 +126,9 @@ const Services = () => {
                             key={category}
                             className={({ active }) =>
                               `cursor-default select-none relative py-2 pl-10 pr-4 ${
-                                active ? "text-white bg-indigo-600" : "text-gray-900"
+                                active
+                                  ? "text-white bg-indigo-600"
+                                  : "text-gray-900"
                               }`
                             }
                             value={category}
@@ -133,7 +148,10 @@ const Services = () => {
                                       active ? "text-white" : "text-indigo-600"
                                     }`}
                                   >
-                                    <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                                    <CheckIcon
+                                      className="w-5 h-5"
+                                      aria-hidden="true"
+                                    />
                                   </span>
                                 ) : null}
                               </>

@@ -1,15 +1,16 @@
 import missionImage from "../assets/images/About Image.jpeg";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Carousel } from "react-responsive-carousel";
-import { CheckCircleIcon, ChartBarIcon, UsersIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
+import {
+  CheckCircleIcon,
+  ChartBarIcon,
+  UsersIcon,
+} from "@heroicons/react/24/outline";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { missionPoints, testimonials } from "../constant/about";
 
 const About = () => {
   return (
     <div>
-      <Navbar />
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
@@ -53,7 +54,9 @@ const About = () => {
               {missionPoints.map((point, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <point.icon className="h-6 w-6 text-indigo-600" />
-                  <p className="text-lg leading-8 text-gray-600">{point.text}</p>
+                  <p className="text-lg leading-8 text-gray-600">
+                    {point.text}
+                  </p>
                 </div>
               ))}
             </div>
@@ -139,7 +142,10 @@ const About = () => {
             className="mt-10"
           >
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="text-center bg-white rounded-lg shadow-lg p-6">
+              <div
+                key={index}
+                className="text-center bg-white rounded-lg shadow-lg p-6"
+              >
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
@@ -186,8 +192,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

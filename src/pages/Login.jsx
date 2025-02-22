@@ -1,76 +1,117 @@
-import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
+import ReCAPTCHA from "react-google-recaptcha";
+import loginImage from "../assets/images/Working.jpeg"; // Import the login image
 
 const Login = () => {
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const navigate = useNavigate();
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (recaptchaValue) {
+      // Handle login logic here
+      navigate("/account");
+    } else {
+      alert("Please complete the reCAPTCHA verification.");
+    }
+  };
+
   return (
-    <div className="relative bg-gray-50 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Login
-        </h2>
-        <p className="mt-4 text-center text-lg leading-8 text-gray-600">
-          Welcome back! Please login to your account.
-        </p>
-        <div className="mt-10 max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
-          <form action="#" method="POST" className="space-y-6">
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email
-              </label>
-              <div className="mt-1">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  className="block h-14 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
+    <div>
+      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-20 flex flex-col md:flex-row">
+          <div className="md:w-1/2 md:pr-8">
+            <h2 className="text-3xl font-bold text-center text-gray-900">
+              Login to Your Account
+            </h2>
+            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 gap-6 ">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    required
+                    className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
+                  />
+                </div>
+              </div>
+              <div>
+                <ReCAPTCHA
+                  sitekey="your-site-key"
+                  onChange={handleRecaptchaChange}
                 />
               </div>
-            </div>
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Password
-              </label>
-              <div className="mt-1">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  required
-                  className="block h-14 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
-                />
+              <div>
+                <button
+                  type="submit"
+                  className="w-full inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  Login
+                </button>
               </div>
-            </div>
-            <div>
+            </form>
+            <div className="mt-4">
               <button
-                type="submit"
-                className="w-full inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                type="button"
+                className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Login
+                <FaGoogle className="mr-2" /> Login with Google
               </button>
             </div>
-          </form>
-          <div className="mt-4">
-            <button
-              type="button"
-              className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              <FaGoogle className="mr-2" /> Login with Google
-            </button>
+            <div className="mt-2">
+              <button
+                type="button"
+                className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                <FaFacebook className="mr-2" /> Login with Facebook
+              </button>
+            </div>
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600">
+                Do not have an account?{" "}
+                <a
+                  href="/account"
+                  className="text-indigo-600 hover:text-indigo-500"
+                >
+                  Sign up
+                </a>
+              </p>
+            </div>
           </div>
-          <div className="mt-2">
-            <button
-              type="button"
-              className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              <FaFacebook className="mr-2" /> Login with Facebook
-            </button>
+          <div className="md:w-1/2 md:pl-8">
+            <img
+              src={loginImage}
+              alt="Login"
+              className="w-full h-auto rounded-lg object-cover"
+            />
           </div>
         </div>
       </div>
