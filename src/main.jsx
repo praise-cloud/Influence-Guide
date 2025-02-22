@@ -2,15 +2,16 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.css";
-import App from "./App.jsx";
-import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import Contact from "./pages/Contact.jsx";
-import Services from "./pages/Services.jsx";
-import Blog from "./pages/Blog.jsx";
-import Account from "./pages/Account.jsx";
-import Checkout from "./pages/Checkout.jsx";
-import Login from "./pages/Login.jsx";
+import App from "./App";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Services from "./pages/Services";
+import Blog from "./pages/Blog";
+import Account from "./pages/Account";
+import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
+import BlogDetail from "./pages/BlogDetail";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="account" element={<Account />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path="login" element={<Login />} />
+          <Route path="blog/:id" element={<BlogDetail />} />
         </Route>
       </Routes>
     </Router>

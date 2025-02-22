@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import blogs from "../constant/blogs";
+import { blogs, recentPosts } from "../constant/blogs";
 // import Navbar from "../components/Navbar
 
 const Blog = () => {
@@ -31,6 +31,7 @@ const Blog = () => {
           <Carousel
             showThumbs={false}
             showStatus={false}
+            showIndicators={false}
             infiniteLoop
             autoPlay
             renderArrowPrev={(onClickHandler, hasPrev, label) =>
@@ -39,7 +40,7 @@ const Blog = () => {
                   type="button"
                   onClick={onClickHandler}
                   title={label}
-                  className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
+                  className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full z-20"
                 >
                   <ChevronLeftIcon className="h-6 w-6" />
                 </button>
@@ -58,23 +59,26 @@ const Blog = () => {
               )
             }
           >
-            {blogs.slice(0, 3).map((blog) => (
-              <div key={blog.id} className="p-4">
+            {recentPosts.slice(0, 5).map((recentPosts) => (
+              <div
+                key={recentPosts.id}
+                className="p-4 my-10 mx-16 shadow-lg rounded-lg"
+              >
                 <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="h-48 w-full object-cover rounded-t-lg"
+                  src={recentPosts.image}
+                  alt={recentPosts.title}
+                  className="h-52 w-full object-cover rounded-t-lg"
                 />
                 <div className="mt-4">
                   <h3 className="text-lg font-medium text-gray-900">
-                    {blog.title}
+                    {recentPosts.title}
                   </h3>
                   <p className="mt-2 text-base text-gray-600">
-                    {blog.description}
+                    {recentPosts.description}
                   </p>
-                  <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
-                    <span>{blog.date}</span>
-                    <span>by {blog.author}</span>
+                  <div className="mt-4 flex items-center justify-between text-sm text-gray-500 mx-50">
+                    <span>{recentPosts.date}</span>
+                    <span>by {recentPosts.author}</span>
                   </div>
                 </div>
               </div>

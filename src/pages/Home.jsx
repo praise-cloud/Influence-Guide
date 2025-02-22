@@ -3,14 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { stats, statsNumbers } from "../constant/stats";
 import faqs from "../constant/faqs";
 import { homeServices } from "../constant/services";
-import blogs from "../constant/blogs";
 import { Disclosure, Transition } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import {
+  ChevronUpIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/20/solid";
 import SignUpModal from "../components/SignUpModal";
 import LoginModal from "../components/LoginModal";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Carousel } from "react-responsive-carousel";
+import { recentPosts } from "../constant/blogs";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import heroImage from "../assets/images/Bento grid v2_0.jpeg"; // Import the hero image
 
@@ -35,8 +37,7 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <Navbar openLoginModal={openLoginModal} />
+    <>
       {/* Hero section */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
@@ -170,6 +171,7 @@ const Home = () => {
             <Carousel
               showThumbs={false}
               showStatus={false}
+              showIndicators={false} // Turn off the dots (indicators)
               infiniteLoop
               autoPlay
               renderArrowPrev={(onClickHandler, hasPrev, label) =>
@@ -178,9 +180,9 @@ const Home = () => {
                     type="button"
                     onClick={onClickHandler}
                     title={label}
-                    className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
+                    className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full z-20"
                   >
-                    &#9664;
+                    <ChevronLeftIcon className="h-6 w-6" />
                   </button>
                 )
               }
@@ -192,30 +194,34 @@ const Home = () => {
                     title={label}
                     className="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-gray-800 text-white rounded-full"
                   >
-                    &#9654;
+                    <ChevronRightIcon className="h-6 w-6" />
                   </button>
                 )
               }
             >
-              {blogs.slice(0, 3).map((blog) => (
-                <div key={blog.id} className="p-4">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="h-48 w-full object-cover rounded-t-lg"
-                  />
-                  <div className="mt-4">
-                    <h3 className="text-lg font-medium text-gray-900">
-                      {blog.title}
-                    </h3>
-                    <p className="mt-2 text-base text-gray-600">
-                      {blog.description}
-                    </p>
-                    <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
-                      <span>{blog.date}</span>
-                      <span>by {blog.author}</span>
+              {recentPosts.slice(0, 3).map((recentPosts) => (
+                <div key={recentPosts.id} className="p-4">
+                  <a href={`/blog/${recentPosts.id}`} className="block">
+                    <div className="bg-white rounded-lg shadow-lg p-6 mx-16">
+                      <img
+                        src={recentPosts.image}
+                        alt={recentPosts.title}
+                        className="h-48 w-full object-cover rounded-t-lg"
+                      />
+                      <div className="mt-4">
+                        <h3 className="text-lg font-medium text-gray-900">
+                          {recentPosts.title}
+                        </h3>
+                        <p className="mt-2 text-base text-gray-600">
+                          {recentPosts.description}
+                        </p>
+                        <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
+                          <span>{recentPosts.date}</span>
+                          <span>by {recentPosts.author}</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               ))}
             </Carousel>
@@ -322,8 +328,6 @@ const Home = () => {
         </div>
       </div>
 
-      <Footer />
-
       {/* Sign Up Modal */}
       <SignUpModal
         isOpen={isSignUpModalOpen}
@@ -335,7 +339,7 @@ const Home = () => {
         closeModal={closeLoginModal}
         openSignUpModal={openSignUpModal}
       />
-    </div>
+    </>
   );
 };
 

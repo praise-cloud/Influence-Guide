@@ -1,4 +1,9 @@
-import { ChartBarIcon, ShieldCheckIcon, CogIcon, HandThumbDownIcon} from "@heroicons/react/24/outline";
+import {
+  ChartBarIcon,
+  ShieldCheckIcon,
+  CogIcon,
+  HandThumbDownIcon,
+} from "@heroicons/react/24/outline";
 
 const services = [
   {
@@ -125,7 +130,6 @@ const services = [
   },
 ];
 
-
 const homeServices = [
   {
     title: "Content Scheduling",
@@ -157,7 +161,13 @@ const homeServices = [
     category: "Content Creation",
     description: "Create visually appealing graphics for your content.",
     icon: ChartBarIcon,
-  }
-]
+  },
+  {
+    title: "Engagement Tracking",
+    category: "Social Media Management",
+    description: "Track engagement metrics to understand your audience better.",
+    icon: CogIcon,
+  },
+];
 
-export {services, homeServices};
+export { services, homeServices };

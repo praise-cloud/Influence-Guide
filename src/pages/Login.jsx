@@ -1,25 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
-import ReCAPTCHA from "react-google-recaptcha";
 import loginImage from "../assets/images/Working.jpeg"; // Import the login image
 
 const Login = () => {
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const navigate = useNavigate();
-
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (recaptchaValue) {
-      // Handle login logic here
-      navigate("/account");
-    } else {
-      alert("Please complete the reCAPTCHA verification.");
-    }
+    // Handle login logic here
+    navigate("/account");
   };
 
   return (
@@ -62,12 +52,6 @@ const Login = () => {
                     className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
                   />
                 </div>
-              </div>
-              <div>
-                <ReCAPTCHA
-                  sitekey="your-site-key"
-                  onChange={handleRecaptchaChange}
-                />
               </div>
               <div>
                 <button

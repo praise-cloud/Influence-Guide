@@ -8,7 +8,7 @@ import {
   ShoppingCartIcon,
   CheckIcon,
 } from "@heroicons/react/20/solid";
-import {services} from "../constant/services";
+import { services } from "../constant/services";
 import heroImage from "../assets/images/Bento grid v2_0.jpeg"; // Import the hero image
 
 const categories = [
