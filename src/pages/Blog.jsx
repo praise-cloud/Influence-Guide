@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { blogs, recentPosts } from "../constant/blogs";
-// import Navbar from "../components/Navbar
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const [visibleBlogs, setVisibleBlogs] = useState(3);
@@ -93,25 +93,22 @@ const Blog = () => {
           </h3>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {blogs.slice(3, visibleBlogs).map((blog) => (
-              <div key={blog.id} className="bg-white rounded-lg shadow-lg p-6">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="h-48 w-full object-cover rounded-t-lg"
-                />
-                <div className="mt-4">
-                  <h3 className="text-lg font-medium text-gray-900">
-                    {blog.title}
-                  </h3>
-                  <p className="mt-2 text-base text-gray-600">
-                    {blog.description}
-                  </p>
-                  <div className="mt-4 flex items-center justify-between text-sm text-gray-500">
-                    <span>{blog.date}</span>
-                    <span>by {blog.author}</span>
+              <Link to={`/blog/${blog.id}`} key={blog.id} className="block">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-6">
+                    <h2 className="text-2xl font-bold mb-2">{blog.title}</h2>
+                    <p className="text-gray-600 mb-4">{blog.description}</p>
+                    <p className="text-gray-500 text-sm">
+                      {blog.date} by {blog.author}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           {visibleBlogs < blogs.length && (

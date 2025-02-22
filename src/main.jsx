@@ -12,6 +12,7 @@ import Account from "./pages/Account";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import BlogDetail from "./pages/BlogDetail";
+import Dashboard from "./pages/Dashboard";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,8 +28,9 @@ createRoot(document.getElementById("root")).render(
           <Route path="checkout" element={<Checkout />} />
           <Route path="login" element={<Login />} />
           <Route path="blog/:id" element={<BlogDetail />} />
+          <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </Router>
-  </StrictMode>,
+  </StrictMode>
 );
