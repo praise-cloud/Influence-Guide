@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const Checkout = () => {
@@ -8,21 +7,13 @@ const Checkout = () => {
 
   return (
     <>
-      <Navbar />
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-center mb-8">Checkout</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {selectedServices.map((service) => (
-            <div
-              key={service.title}
-              className="bg-white rounded-lg shadow-lg p-6"
-            >
-              <h3 className="text-lg font-medium text-gray-900">
-                {service.title}
-              </h3>
-              <p className="mt-4 text-base text-gray-600">
-                {service.description}
-              </p>
+            <div key={service.title} className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-lg font-medium text-gray-900">{service.title}</h3>
+              <p className="mt-4 text-base text-gray-600">{service.description}</p>
             </div>
           ))}
         </div>

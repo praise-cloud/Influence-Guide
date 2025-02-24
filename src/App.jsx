@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
 import LoadingScreen from "./components/LoadingScreen";
+import Navbar from "./components/Navbar";
 import "./components/LoadingScreen.css"; // Import the CSS file for the animation
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
     const handleComplete = () => setLoading(false);
 
     handleStart();
-    const timer = setTimeout(handleComplete, 3000); // 3 seconds
+    const timer = setTimeout(handleComplete, 2000); // 2 seconds
 
     return () => {
       clearTimeout(timer);
@@ -21,7 +22,20 @@ const App = () => {
     };
   }, [location]);
 
-  return <>{loading ? <LoadingScreen /> : <Layout />}</>;
+  const isDashboardPage = location.pathname === "/dashboard";
+
+  return (
+    <>
+      {loading ? (
+        <LoadingScreen />
+      ) : (
+        <>
+          {!isDashboardPage && <Navbar />}
+          <Layout />
+        </>
+      )}
+    </>
+  );
 };
 
 export default App;
