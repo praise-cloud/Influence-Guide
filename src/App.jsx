@@ -22,7 +22,19 @@ const App = () => {
     };
   }, [location]);
 
-  const isDashboardPage = location.pathname === "/dashboard";
+  const sidebarPages = [
+    "/dashboard",
+    "/wishlist",
+    "/checkout",
+    "/giftcard-exchange",
+    "/support",
+    "/settings",
+    "/logout",
+    "/process-transaction",
+    "/order-tracking",
+  ];
+
+  const isSidebarPage = sidebarPages.includes(location.pathname);
 
   return (
     <>
@@ -30,7 +42,7 @@ const App = () => {
         <LoadingScreen />
       ) : (
         <>
-          {!isDashboardPage && <Navbar />}
+          {!isSidebarPage && <Navbar />}
           <Layout />
         </>
       )}

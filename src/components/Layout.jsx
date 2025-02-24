@@ -4,11 +4,23 @@ import Footer from "./Footer";
 
 const Layout = () => {
   const location = useLocation();
-  const isDashboardPage = location.pathname === "/dashboard";
+  const sidebarPages = [
+    "/dashboard",
+    "/wishlist",
+    "/checkout",
+    "/giftcard-exchange",
+    "/support",
+    "/settings",
+    "/logout",
+    "/process-transaction",
+    "/order-tracking",
+  ];
+
+  const isSidebarPage = sidebarPages.includes(location.pathname);
 
   return (
     <div className="flex flex-col min-h-screen">
-      {!isDashboardPage && <Navbar />}
+      {!isSidebarPage && <Navbar />}
       <main className="flex-grow">
         <Outlet />
       </main>

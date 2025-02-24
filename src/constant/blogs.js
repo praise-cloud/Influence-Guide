@@ -8,7 +8,8 @@ const blogs = [
   {
     id: 1,
     title: "How to Grow Your Social Media Presence",
-    description: "Learn the best strategies to grow your social media presence and engage with your audience.",
+    description:
+      "Learn the best strategies to grow your social media presence and engage with your audience.",
     date: "October 10, 2023",
     author: "John Doe",
     image: blog1,
@@ -28,7 +29,8 @@ const blogs = [
   {
     id: 2,
     title: "Top 10 Social Media Marketing Tips",
-    description: "Discover the top 10 social media marketing tips to boost your online presence and drive traffic.",
+    description:
+      "Discover the top 10 social media marketing tips to boost your online presence and drive traffic.",
     date: "October 8, 2023",
     author: "Jane Smith",
     image: blog2,
@@ -60,7 +62,8 @@ const blogs = [
   {
     id: 3,
     title: "The Importance of Analytics in Social Media",
-    description: "Understand the importance of analytics in social media and how to use data to make informed decisions.",
+    description:
+      "Understand the importance of analytics in social media and how to use data to make informed decisions.",
     date: "October 5, 2023",
     author: "Alice Johnson",
     image: blog3,
@@ -82,7 +85,8 @@ const blogs = [
   {
     id: 4,
     title: "How to Create Engaging Content",
-    description: "Learn how to create content that resonates with your audience and keeps them engaged.",
+    description:
+      "Learn how to create content that resonates with your audience and keeps them engaged.",
     date: "October 3, 2023",
     author: "Michael Brown",
     image: blog4,
@@ -104,7 +108,8 @@ const blogs = [
   {
     id: 5,
     title: "The Benefits of Influencer Marketing",
-    description: "Explore the benefits of influencer marketing and how it can help your brand reach a wider audience.",
+    description:
+      "Explore the benefits of influencer marketing and how it can help your brand reach a wider audience.",
     date: "September 30, 2023",
     author: "Emily Davis",
     image: blog5,
@@ -126,7 +131,8 @@ const blogs = [
   {
     id: 6,
     title: "Social Media Trends to Watch in 2023",
-    description: "Stay ahead of the curve with the latest social media trends to watch in 2023.",
+    description:
+      "Stay ahead of the curve with the latest social media trends to watch in 2023.",
     date: "September 25, 2023",
     author: "David Wilson",
     image: blog1,
@@ -148,7 +154,8 @@ const blogs = [
   {
     id: 7,
     title: "Effective Social Media Advertising Strategies",
-    description: "Learn effective strategies for advertising on social media to maximize your ROI.",
+    description:
+      "Learn effective strategies for advertising on social media to maximize your ROI.",
     date: "September 20, 2023",
     author: "Sarah Lee",
     image: blog2,
@@ -170,7 +177,8 @@ const blogs = [
   {
     id: 8,
     title: "Building a Strong Personal Brand on Social Media",
-    description: "Discover how to build a strong personal brand on social media and stand out in your industry.",
+    description:
+      "Discover how to build a strong personal brand on social media and stand out in your industry.",
     date: "September 15, 2023",
     author: "Mark Thompson",
     image: blog3,
@@ -192,7 +200,8 @@ const blogs = [
   {
     id: 9,
     title: "The Role of Social Media in Customer Service",
-    description: "Learn how to leverage social media for effective customer service and improve customer satisfaction.",
+    description:
+      "Learn how to leverage social media for effective customer service and improve customer satisfaction.",
     date: "September 10, 2023",
     author: "Laura White",
     image: blog4,
@@ -214,7 +223,8 @@ const blogs = [
   {
     id: 10,
     title: "Creating a Social Media Content Calendar",
-    description: "Learn how to create a social media content calendar to plan and organize your content effectively.",
+    description:
+      "Learn how to create a social media content calendar to plan and organize your content effectively.",
     date: "September 5, 2023",
     author: "James Brown",
     image: blog5,

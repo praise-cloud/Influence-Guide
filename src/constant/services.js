@@ -1,9 +1,4 @@
-import {
-  ChartBarIcon,
-  ShieldCheckIcon,
-  CogIcon,
-  HandThumbDownIcon,
-} from "@heroicons/react/24/outline";
+import { ChartBarIcon, ShieldCheckIcon, GlobeAltIcon, LightBulbIcon, HandThumbDownIcon, CogIcon } from "@heroicons/react/24/outline";
 
 const services = [
   {
@@ -22,14 +17,14 @@ const services = [
     title: "Engagement Tracking",
     category: "Social Media Management",
     description: "Track engagement metrics to understand your audience better.",
-    icon: CogIcon,
+    icon: GlobeAltIcon,
   },
   {
     title: "Analytics and Reporting",
     category: "Social Media Management",
     description:
       "Get detailed analytics and reports on your social media performance.",
-    icon: HandThumbDownIcon,
+    icon: LightBulbIcon,
   },
   {
     title: "Graphic Design",
@@ -47,13 +42,13 @@ const services = [
     title: "Copywriting",
     category: "Content Creation",
     description: "Write compelling copy to attract and retain your audience.",
-    icon: CogIcon,
+    icon: GlobeAltIcon,
   },
   {
     title: "Content Strategy",
     category: "Content Creation",
     description: "Develop a content strategy to achieve your business goals.",
-    icon: HandThumbDownIcon,
+    icon: LightBulbIcon,
   },
   {
     title: "Performance Metrics",
@@ -71,13 +66,13 @@ const services = [
     title: "Competitor Analysis",
     category: "Analytics",
     description: "Analyze your competitors to stay ahead in the market.",
-    icon: CogIcon,
+    icon: GlobeAltIcon,
   },
   {
     title: "Custom Reports",
     category: "Analytics",
     description: "Generate custom reports to track your progress.",
-    icon: HandThumbDownIcon,
+    icon: LightBulbIcon,
   },
   {
     title: "Ad Campaigns",
@@ -95,14 +90,14 @@ const services = [
     title: "Email Marketing",
     category: "Marketing",
     description: "Use email marketing to nurture leads and drive sales.",
-    icon: CogIcon,
+    icon: GlobeAltIcon,
   },
   {
     title: "SEO Optimization",
     category: "Marketing",
     description:
       "Optimize your content for search engines to increase visibility.",
-    icon: HandThumbDownIcon,
+    icon: LightBulbIcon,
   },
   {
     title: "Social Media Audits",
@@ -120,13 +115,13 @@ const services = [
     title: "Customer Engagement",
     category: "Social Media Management",
     description: "Engage with your customers to build strong relationships.",
-    icon: CogIcon,
+    icon: GlobeAltIcon,
   },
   {
     title: "Market Research",
     category: "Analytics",
     description: "Conduct market research to understand industry trends.",
-    icon: HandThumbDownIcon,
+    icon: LightBulbIcon,
   },
 ];
 
