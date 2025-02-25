@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 import navigationItems from "../constant/NavigationItems";
 
 const Navbar = ({ openLoginModal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleMobileMenuOpen = () => {
+    setMobileMenuOpen(true);
+    navigate("/login");
+  };
 
   return (
     <>
@@ -26,7 +33,7 @@ const Navbar = ({ openLoginModal }) => {
           <div className="flex lg:hidden">
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(true)}
+              onClick={handleMobileMenuOpen}
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Open main menu</span>

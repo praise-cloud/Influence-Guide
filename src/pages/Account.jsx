@@ -24,7 +24,7 @@ const Account = () => {
 
   return (
     <div>
-      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 mt-5">
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white p-8 rounded-lg shadow-lg">
           <div className="w-full space-y-8">
             <div>

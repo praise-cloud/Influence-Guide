@@ -3,9 +3,15 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useNavigate } from "react-router-dom";
+import { signUp } from "../utils/auth";
 
 const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRecaptchaChange = (value) => {
     setRecaptchaValue(value);
@@ -14,7 +20,13 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (recaptchaValue) {
-      // Handle sign-up logic here
+      const isSignedUp = signUp(name, email, password);
+      if (isSignedUp) {
+        closeModal();
+        navigate("/dashboard");
+      } else {
+        alert("Sign-up failed. Please try again.");
+      }
     } else {
       alert("Please complete the reCAPTCHA verification.");
     }
@@ -66,6 +78,8 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
                         type="text"
                         name="name"
                         id="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         required
                         className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
                       />
@@ -81,6 +95,8 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
                         type="email"
                         name="email"
                         id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                         className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
                       />
@@ -96,6 +112,8 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
                         type="password"
                         name="password"
                         id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         required
                         className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
                       />

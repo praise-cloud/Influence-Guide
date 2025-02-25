@@ -3,9 +3,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useNavigate } from "react-router-dom";
+import { login } from "../utils/auth";
 
 const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRecaptchaChange = (value) => {
     setRecaptchaValue(value);
@@ -14,7 +19,13 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (recaptchaValue) {
-      // Handle login logic here
+      const isLoggedIn = login(email, password);
+      if (isLoggedIn) {
+        closeModal();
+        navigate("/dashboard");
+      } else {
+        alert("Invalid email or password.");
+      }
     } else {
       alert("Please complete the reCAPTCHA verification.");
     }
@@ -66,6 +77,8 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                         type="email"
                         name="email"
                         id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                         className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
                       />
@@ -81,6 +94,8 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                         type="password"
                         name="password"
                         id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         required
                         className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
                       />

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import loginImage from "../assets/images/Working.jpeg"; // Import the login image
@@ -78,7 +77,7 @@ const Login = () => {
                 <FaFacebook className="mr-2" /> Login with Facebook
               </button>
             </div>
-            <div className="mt-4 text-center">
+            <div className="mt-4 text-center mb-5">
               <p className="text-sm text-gray-600">
                 Do not have an account?{" "}
                 <a

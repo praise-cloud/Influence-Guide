@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
 import LoadingScreen from "./components/LoadingScreen";
 import Navbar from "./components/Navbar";
+import { AppProvider } from "./context/AppContext";
 import "./components/LoadingScreen.css"; // Import the CSS file for the animation
 
 const App = () => {
@@ -37,7 +38,7 @@ const App = () => {
   const isSidebarPage = sidebarPages.includes(location.pathname);
 
   return (
-    <>
+    <AppProvider>
       {loading ? (
         <LoadingScreen />
       ) : (
@@ -46,7 +47,7 @@ const App = () => {
           <Layout />
         </>
       )}
-    </>
+    </AppProvider>
   );
 };
 
