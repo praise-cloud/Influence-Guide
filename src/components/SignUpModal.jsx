@@ -5,6 +5,8 @@ import { FaGoogle, FaFacebook } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../utils/auth";
+import { auth, googleProvider, facebookProvider } from "../utils/firebase";
+import { signInWithPopup } from "firebase/auth";
 
 const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
@@ -17,10 +19,10 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
     setRecaptchaValue(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (recaptchaValue) {
-      const isSignedUp = signUp(name, email, password);
+      const isSignedUp = await signUp(name, email, password);
       if (isSignedUp) {
         closeModal();
         navigate("/dashboard");
@@ -29,6 +31,28 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
       }
     } else {
       alert("Please complete the reCAPTCHA verification.");
+    }
+  };
+
+  const handleGoogleSignUp = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      closeModal();
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Google sign-up error:", error);
+      alert("Google sign-up failed. Please try again.");
+    }
+  };
+
+  const handleFacebookSignUp = async () => {
+    try {
+      await signInWithPopup(auth, facebookProvider);
+      closeModal();
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Facebook sign-up error:", error);
+      alert("Facebook sign-up failed. Please try again.");
     }
   };
 
@@ -118,12 +142,12 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
                         className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
                       />
                     </div>
-                    <div className="mt-4">
+                    {/* <div className="mt-4">
                       <ReCAPTCHA
-                        sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                        sitekey="YOUR_VALID_RECAPTCHA_SITE_KEY"
                         onChange={handleRecaptchaChange}
                       />
-                    </div>
+                    </div> */}
                     <div>
                       <button
                         type="submit"
@@ -136,6 +160,7 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
                   <div className="mt-4">
                     <button
                       type="button"
+                      onClick={handleGoogleSignUp}
                       className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       <FaGoogle className="mr-2" /> Sign Up with Google
@@ -144,6 +169,7 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
                   <div className="mt-2">
                     <button
                       type="button"
+                      onClick={handleFacebookSignUp}
                       className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       <FaFacebook className="mr-2" /> Sign Up with Facebook

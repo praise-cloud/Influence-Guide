@@ -1,22 +1,29 @@
-export const login = (email, password) => {
-  // Simulate login logic
-  if (email === "user@example.com" && password === "password") {
-    localStorage.setItem("userToken", "sampleToken123");
+import axios from "axios";
+
+const API_URL = "https://your-backend-url.com/api/users"; // Replace with your backend URL
+
+export const login = async (email, password) => {
+  try {
+    const response = await axios.post(`${API_URL}/login`, { email, password });
+    localStorage.setItem("userToken", response.data.token);
     return true;
-  } else {
+  } catch (error) {
+    console.error("Login error:", error);
     return false;
   }
 };
 
-export const signUp = (name, email, password) => {
-  // Simulate sign-up logic
-  // In a real application, you would send a request to your backend to create a new user
-  localStorage.setItem("userToken", "sampleToken123");
-  return true;
+export const signUp = async (name, email, password) => {
+  try {
+    const response = await axios.post(`${API_URL}/register`, { name, email, password });
+    localStorage.setItem("userToken", response.data.token);
+    return true;
+  } catch (error) {
+    console.error("Sign-up error:", error);
+    return false;
+  }
 };
 
 export const logout = () => {
-  // Clear user session and token
   localStorage.removeItem("userToken");
-  sessionStorage.removeItem("userSession");
 };

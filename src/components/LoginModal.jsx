@@ -5,6 +5,8 @@ import { FaGoogle, FaFacebook } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from "react-router-dom";
 import { login } from "../utils/auth";
+import { auth, googleProvider, facebookProvider } from "../utils/firebase";
+import { signInWithPopup } from "firebase/auth";
 
 const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
   const [recaptchaValue, setRecaptchaValue] = useState(null);
@@ -16,10 +18,10 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
     setRecaptchaValue(value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (recaptchaValue) {
-      const isLoggedIn = login(email, password);
+      const isLoggedIn = await login(email, password);
       if (isLoggedIn) {
         closeModal();
         navigate("/dashboard");
@@ -28,6 +30,28 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
       }
     } else {
       alert("Please complete the reCAPTCHA verification.");
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      closeModal();
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Google login error:", error);
+      alert("Google login failed. Please try again.");
+    }
+  };
+
+  const handleFacebookLogin = async () => {
+    try {
+      await signInWithPopup(auth, facebookProvider);
+      closeModal();
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Facebook login error:", error);
+      alert("Facebook login failed. Please try again.");
     }
   };
 
@@ -102,7 +126,7 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                     </div>
                     <div className="mt-4">
                       <ReCAPTCHA
-                        sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                        sitekey="YOUR_VALID_RECAPTCHA_SITE_KEY"
                         onChange={handleRecaptchaChange}
                       />
                     </div>
@@ -118,6 +142,7 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                   <div className="mt-4">
                     <button
                       type="button"
+                      onClick={handleGoogleLogin}
                       className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       <FaGoogle className="mr-2" /> Login with Google
@@ -126,6 +151,7 @@ const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {
                   <div className="mt-2">
                     <button
                       type="button"
+                      onClick={handleFacebookLogin}
                       className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                     >
                       <FaFacebook className="mr-2" /> Login with Facebook
