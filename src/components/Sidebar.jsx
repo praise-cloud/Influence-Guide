@@ -14,7 +14,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-64 bg-gray-800 text-white min-h-screen p-6 m-5 rounded-2xl">
+    <div className="w-64 bg-gray-800 text-white min-h-11 p-6 m-5 rounded-2xl">
       <h2 className="text-2xl font-bold mb-4">Navigation</h2>
       <ul className="space-y-2">
         {sidebarLinks.map((link) => (

@@ -2,35 +2,25 @@ import PropTypes from "prop-types";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../utils/auth";
 import { auth, googleProvider, facebookProvider } from "../utils/firebase";
 import { signInWithPopup } from "firebase/auth";
 
 const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (recaptchaValue) {
-      const isSignedUp = await signUp(name, email, password);
-      if (isSignedUp) {
-        closeModal();
-        navigate("/dashboard");
-      } else {
-        alert("Sign-up failed. Please try again.");
-      }
+    const isSignedUp = await signUp(name, email, password);
+    if (isSignedUp) {
+      closeModal();
+      navigate("/dashboard");
     } else {
-      alert("Please complete the reCAPTCHA verification.");
+      alert("Sign-up failed. Please try again.");
     }
   };
 
@@ -142,12 +132,6 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
                         className="mt-1 block w-full h-14 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-5"
                       />
                     </div>
-                    {/* <div className="mt-4">
-                      <ReCAPTCHA
-                        sitekey="YOUR_VALID_RECAPTCHA_SITE_KEY"
-                        onChange={handleRecaptchaChange}
-                      />
-                    </div> */}
                     <div>
                       <button
                         type="submit"

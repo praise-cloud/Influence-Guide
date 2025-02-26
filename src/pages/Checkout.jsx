@@ -39,55 +39,56 @@ const Checkout = () => {
 
   return (
     <>
-      <div className="flex">
-        <Sidebar />
+      <div className="flex h-screen overflow-hidden">
+        <Sidebar className="flex-shrink-0 w-64" />
         {/* Main Content */}
-        <div className="flex-1 container mx-auto px-4 py-16">
-          <h1 className="text-4xl font-bold text-center mb-8">Checkout</h1>
-          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h2 className="text-2xl font-bold mb-4">Your Orders</h2>
-            <ul className="space-y-4">
-              {orders.map((order, index) => (
-                <li key={index} className="bg-gray-100 rounded-lg p-4">
-                  <h3 className="text-lg font-medium text-gray-900">
-                    Gift Card: {order.selectedGiftCard.name}
-                  </h3>
-                  <p className="mt-2 text-base text-gray-600">
-                    Amount: {order.currency} {order.amount}
-                  </p>
-                  <p className="mt-2 text-base text-gray-600">
-                    Exchange Rate: {order.selectedGiftCard.rate}
-                  </p>
-                  <p className="mt-2 text-base text-gray-600">
-                    Total: {order.total} {order.currency}
-                  </p>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8">
-              <h2 className="text-2xl font-bold mb-4">Total Amount</h2>
-              <p className="text-lg font-medium text-gray-900">
-                {calculateTotal()} {currency}
-              </p>
+        <div className="flex-1 overflow-y-auto">
+          <div className="container mx-auto px-4 py-16">
+            <h1 className="text-4xl font-bold text-center mb-8">Checkout</h1>
+            <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+              <h2 className="text-2xl font-bold mb-4">Your Orders</h2>
+              <ul className="space-y-4">
+                {orders.map((order, index) => (
+                  <li key={index} className="bg-gray-100 rounded-lg p-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      Gift Card: {order.selectedGiftCard.name}
+                    </h3>
+                    <p className="mt-2 text-base text-gray-600">
+                      Amount: {order.currency} {order.amount}
+                    </p>
+                    <p className="mt-2 text-base text-gray-600">
+                      Exchange Rate: {order.selectedGiftCard.rate}
+                    </p>
+                    <p className="mt-2 text-base text-gray-600">
+                      Total: {order.total} {order.currency}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <h2 className="text-2xl font-bold mb-4">Total Amount</h2>
+                <p className="text-lg font-medium text-gray-900">
+                  {calculateTotal()} {currency}
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h2 className="text-2xl font-bold mb-4">Proof of Payment</h2>
-            <input
-              type="file"
-              onChange={handleFileChange}
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
-            />
-            <button
-              onClick={handlePlaceOrder}
-              className="mt-4 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              Place Order
-            </button>
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h2 className="text-2xl font-bold mb-4">Proof of Payment</h2>
+              <input
+                type="file"
+                onChange={handleFileChange}
+                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
+              />
+              <button
+                onClick={handlePlaceOrder}
+                className="mt-4 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                Place Order
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

@@ -36,7 +36,6 @@ const UserOrders = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

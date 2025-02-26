@@ -128,7 +128,6 @@ const OrderTracking = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

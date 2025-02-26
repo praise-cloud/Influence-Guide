@@ -1,5 +1,5 @@
 {
-  "name": "influencer-guide-backend",
+  "name": "influencer-guide",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
