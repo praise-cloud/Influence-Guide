@@ -4,7 +4,8 @@ const initialState = {
   selectedGiftCard: null,
   amount: "",
   currency: "USD",
-  selectedServices: [], // Initialize selectedServices
+  selectedServices: [],
+  orders: [],
 };
 
 const AppContext = createContext(initialState);
@@ -20,7 +21,9 @@ const appReducer = (state, action) => {
     case "ADD_SERVICE":
       return { ...state, selectedServices: [...state.selectedServices, action.payload] };
     case "REMOVE_SERVICE":
-      return { ...state, selectedServices: state.selectedServices.filter(service => service !== action.payload) };
+      return { ...state, selectedServices: state.selectedServices.filter(service => service.id !== action.payload.id) };
+    case "ADD_ORDER":
+      return { ...state, orders: [...state.orders, action.payload] };
     default:
       return state;
   }

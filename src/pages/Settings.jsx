@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
 
 const Settings = () => {
   const [profile, setProfile] = useState({
@@ -61,8 +60,8 @@ const Settings = () => {
 
   return (
     <>
-      <div className="flex">
-        <Sidebar />
+      <div className="flex h-screen overflow-hidden">
+        <Sidebar className="flex-shrink-0 w-64" />
         {/* Main Content */}
         <div className="flex-1 container mx-auto px-4 py-16">
           <h1 className="text-4xl font-bold text-center mb-8">Settings</h1>
