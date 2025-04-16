@@ -1,4 +1,4 @@
-import { ChartBarIcon, ShieldCheckIcon, DevicePhoneMobileIcon , CodeBracketSquareIcon  } from "@heroicons/react/24/outline";
+import { ChartBarIcon, ShieldCheckIcon, DevicePhoneMobileIcon , CodeBracketSquareIcon, PlayCircleIcon  } from "@heroicons/react/24/outline";
 
 const services = [
   {
@@ -129,7 +129,7 @@ const homeServices = [
   {
     title: "Social Media Management",
     description: "Manage your social media accounts effectively.",
-    icon: ChartBarIcon,
+    icon: PlayCircleIcon,
   },
   {
     title: "Content Creation",

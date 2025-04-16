@@ -43,8 +43,9 @@ const Dashboard = () => {
 
   const filteredServices = services.filter(
     (service) =>
+      service.title &&
       service.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (selectedCategory ? service.category === selectedCategory : true),
+      (selectedCategory ? service.category === selectedCategory : true)
   );
 
   const calculateTotal = () => {

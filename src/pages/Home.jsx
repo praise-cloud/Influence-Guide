@@ -143,7 +143,7 @@ const Home = () => {
                 className="bg-white rounded-lg shadow-lg p-6 transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
               >
                 <div className="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 mx-auto mb-4">
-                  {/* <service.icon className="h-8 w-8 text-indigo-600" /> */}
+                  <service.icon className="h-8 w-8 text-indigo-600" />
                 </div>
                 <h3 className="text-lg font-medium text-gray-900">
                   {service.title}
