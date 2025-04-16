@@ -1,4 +1,4 @@
-import { ChartBarIcon, ShieldCheckIcon, DeviceMobileIcon, CodeIcon } from "@heroicons/react/24/outline";
+import { ChartBarIcon, ShieldCheckIcon, DevicePhoneMobileIcon , CodeBracketSquareIcon  } from "@heroicons/react/24/outline";
 
 const services = [
   {
@@ -17,14 +17,14 @@ const services = [
     title: "Engagement Tracking",
     category: "Social Media Management",
     description: "Track engagement metrics to understand your audience better.",
-    icon: DeviceMobileIcon,
+    icon: DevicePhoneMobileIcon ,
   },
   {
     title: "Analytics and Reporting",
     category: "Social Media Management",
     description:
       "Get detailed analytics and reports on your social media performance.",
-    icon: CodeIcon,
+    icon: CodeBracketSquareIcon ,
   },
   {
     title: "Graphic Design",
@@ -42,13 +42,13 @@ const services = [
     title: "Copywriting",
     category: "Content Creation",
     description: "Write compelling copy to attract and retain your audience.",
-    icon: DeviceMobileIcon,
+    icon: DevicePhoneMobileIcon ,
   },
   {
     title: "Content Strategy",
     category: "Content Creation",
     description: "Develop a content strategy to achieve your business goals.",
-    icon: CodeIcon,
+    icon: CodeBracketSquareIcon ,
   },
   {
     title: "Performance Metrics",
@@ -66,13 +66,13 @@ const services = [
     title: "Competitor Analysis",
     category: "Analytics",
     description: "Analyze your competitors to stay ahead in the market.",
-    icon: DeviceMobileIcon,
+    icon: DevicePhoneMobileIcon ,
   },
   {
     title: "Custom Reports",
     category: "Analytics",
     description: "Generate custom reports to track your progress.",
-    icon: CodeIcon,
+    icon: CodeBracketSquareIcon ,
   },
   {
     title: "Ad Campaigns",
@@ -90,14 +90,14 @@ const services = [
     title: "Email Marketing",
     category: "Marketing",
     description: "Use email marketing to nurture leads and drive sales.",
-    icon: DeviceMobileIcon,
+    icon: DevicePhoneMobileIcon ,
   },
   {
     title: "SEO Optimization",
     category: "Marketing",
     description:
       "Optimize your content for search engines to increase visibility.",
-    icon: CodeIcon,
+    icon: CodeBracketSquareIcon ,
   },
   {
     title: "Social Media Audits",
@@ -115,14 +115,37 @@ const services = [
     title: "Customer Engagement",
     category: "Social Media Management",
     description: "Engage with your customers to build strong relationships.",
-    icon: DeviceMobileIcon,
+    icon: DevicePhoneMobileIcon ,
   },
   {
     title: "Market Research",
     category: "Analytics",
     description: "Conduct market research to understand industry trends.",
-    icon: CodeIcon,
+    icon: CodeBracketSquareIcon ,
   },
 ];
 
-export default services;
+const homeServices = [
+  {
+    title: "Social Media Management",
+    description: "Manage your social media accounts effectively.",
+    icon: ChartBarIcon,
+  },
+  {
+    title: "Content Creation",
+    description: "Create high-quality content for your audience.",
+    icon: ChartBarIcon,
+  },
+  {
+    title: "Analytics and Reporting",
+    description: "Get insights into your social media performance.",
+    icon: ChartBarIcon,
+  },
+  {
+    title: "Marketing Strategy",
+    description: "Develop a comprehensive marketing strategy.",
+    icon: ChartBarIcon ,
+  }
+]
+
+export default [services, homeServices ];

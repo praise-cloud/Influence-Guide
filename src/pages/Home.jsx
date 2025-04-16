@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { stats, statsNumbers } from "../constant/stats";
 import faqs from "../constant/faqs";
-import { homeServices } from "../constant/services";
+import  homeServices  from "../constant/services";
 import { Disclosure, Transition } from "@headlessui/react";
 import {
   ChevronUpIcon,
@@ -137,13 +137,13 @@ const Home = () => {
             you manage and grow your online presence.
           </p>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {homeServices.map((service) => (
+            {homeServices.map((service, index) => (
               <div
-                key={service.title}
+                key={index}
                 className="bg-white rounded-lg shadow-lg p-6 transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
               >
                 <div className="flex items-center justify-center h-16 w-16 rounded-full bg-indigo-100 mx-auto mb-4">
-                  <service.icon className="h-8 w-8 text-indigo-600" />
+                  {/* <service.icon className="h-8 w-8 text-indigo-600" /> */}
                 </div>
                 <h3 className="text-lg font-medium text-gray-900">
                   {service.title}

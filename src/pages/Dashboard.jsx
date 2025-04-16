@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
-import { services } from "../constant/services";
+import services  from "../constant/services";
 import categories from "../constant/categories";
 import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import { AppContext } from "../context/AppContext";
