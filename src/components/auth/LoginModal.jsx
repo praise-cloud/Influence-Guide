@@ -3,8 +3,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { login } from "../utils/auth";
-import { auth, googleProvider, facebookProvider } from "../utils/firebase";
+import { login } from "../../utils/auth";
+import { auth, googleProvider, facebookProvider } from "../../utils/firebase";
 import { signInWithPopup } from "firebase/auth";
 
 const LoginModal = ({ isOpen, closeModal, openSignUpModal }) => {

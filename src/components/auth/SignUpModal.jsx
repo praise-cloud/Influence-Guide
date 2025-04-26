@@ -3,8 +3,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { signUp } from "../utils/auth";
-import { auth, googleProvider, facebookProvider } from "../utils/firebase";
+import { signUp } from "../../utils/auth";
+import { auth, googleProvider} from "../..//utils/firebase"; //facebookProvider
 import { signInWithPopup } from "firebase/auth";
 
 const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
@@ -19,8 +19,6 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
     if (isSignedUp) {
       closeModal();
       navigate("/dashboard");
-    } else {
-      alert("Sign-up failed. Please try again.");
     }
   };
 
@@ -36,14 +34,15 @@ const SignUpModal = ({ isOpen, closeModal, openLoginModal }) => {
   };
 
   const handleFacebookSignUp = async () => {
-    try {
-      await signInWithPopup(auth, facebookProvider);
-      closeModal();
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Facebook sign-up error:", error);
-      alert("Facebook sign-up failed. Please try again.");
-    }
+    // try {
+    //   await signInWithPopup(auth, facebookProvider);
+    //   closeModal();
+    //   navigate("/dashboard");
+    // } catch (error) {
+    //   console.error("Facebook sign-up error:", error);
+    //   alert("Facebook sign-up failed. Please try again.");
+    // }
+    console.log("Facebook sign-up is not implemented yet.");
   };
 
   return (

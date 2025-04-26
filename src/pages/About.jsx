@@ -1,4 +1,4 @@
-import missionImage from "../assets/images/About Image.jpeg";
+import missionImage from "../../public/images/About Image.jpeg";
 import { Carousel } from "react-responsive-carousel";
 import {
   CheckCircleIcon,

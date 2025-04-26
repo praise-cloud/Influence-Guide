@@ -9,12 +9,12 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/20/solid";
-import SignUpModal from "../components/SignUpModal";
-import LoginModal from "../components/LoginModal";
+import SignUpModal from "../components/auth/SignUpModal";
+import LoginModal from "../components/auth/LoginModal";
 import { Carousel } from "react-responsive-carousel";
 import { recentPosts } from "../constant/blogs";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import heroImage from "../assets/images/Bento grid v2_0.jpeg"; // Import the hero image
+import heroImage from "../../public/images/Bento grid v2_0.jpeg"; // Import the hero image
 
 const Home = () => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
