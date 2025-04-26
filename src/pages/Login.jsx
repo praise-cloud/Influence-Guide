@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
-import loginImage from "../assets/images/Working.jpeg"; // Import the login image
+import loginImage from "../../public/images/Working.jpeg"; // Import the login image
 
 const Login = () => {
   const navigate = useNavigate();

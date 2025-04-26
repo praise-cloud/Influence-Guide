@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import ReCAPTCHA from "react-google-recaptcha";
-import AccountImage from "../assets/images/Account Image.jpeg"; // Import the account image
+import AccountImage from "../../public/images/Account Image.jpeg"; // Import the account image
 
 const Account = () => {
   const [email, setEmail] = useState("");

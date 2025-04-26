@@ -1,8 +1,8 @@
-import blog1 from "../assets/images/196+ In Demand Remote Jobs for 2021 (and Beyond) _.jpeg";
-import blog2 from "../assets/images/How I Started Creative Writing for Fun and Healing _ Sixty and Me.jpeg";
-import blog3 from "../assets/images/How to Become a Freelance Writer in 6 Easy Steps.jpeg";
-import blog4 from "../assets/images/How to Start a Blog for Beginners - Complete Step By Step Guide.jpeg";
-import blog5 from "../assets/images/Working.jpeg";
+import blog1 from "../../public/images/196+ In Demand Remote Jobs for 2021 (and Beyond) _.jpeg";
+import blog2 from "../../public/images/How I Started Creative Writing for Fun and Healing _ Sixty and Me.jpeg";
+import blog3 from "../../public/images/How to Become a Freelance Writer in 6 Easy Steps.jpeg";
+import blog4 from "../../public/images/How to Start a Blog for Beginners - Complete Step By Step Guide.jpeg";
+import blog5 from "../../public/images/Working.jpeg";
 
 const blogs = [
   {

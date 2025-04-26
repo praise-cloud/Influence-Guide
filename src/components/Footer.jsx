@@ -10,22 +10,14 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {isDashboardPage ? (
           <div className="flex justify-center">
-            <img
-              alt="Your Company"
-              src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
+            <span className="flex text-2xl font-semibold">Influencer Guide</span>
           </div>
         ) : (
           <div className="flex flex-col items-center md:flex-row md:justify-between md:space-x-16">
             {/* Company Information */}
             <div className="mb-6 md:mb-0 text-center md:text-left">
-              <img
-                alt="Your Company"
-                src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto mx-auto md:mx-0"
-              />
-              <h2 className="text-xl font-semibold mt-4">Your Company</h2>
+
+              <h2 className="font-semibold mt-4 text-4xl">Influencers Guide</h2>
               <p className="mt-2 text-gray-400">
                 1234 Street Name, City, State, 12345
               </p>
@@ -33,7 +25,7 @@ const Footer = () => {
               <p className="mt-2 text-gray-400">Phone: (123) 456-7890</p>
             </div>
             {/* Quick Links */}
-            <div className="flex flex-col items-center md:flex-row md:space-x-16">
+            <div className="flex flex-row space-x-16 items-center md:flex-row md:space-x-16">
               <div className="mb-6 md:mb-0 text-center md:text-left">
                 <h2 className="text-xl font-semibold">Quick Links</h2>
                 <ul className="mt-2 space-y-2">
