@@ -1,25 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
-import ReCAPTCHA from "react-google-recaptcha";
 import AccountImage from "../../public/images/Account Image.jpeg"; // Import the account image
 
 const Account = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
   const [name, setName] = useState("");
+  const navigate = useNavigate();
 
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
 
-  const handleLogin = (e) => {
+
+  const handleSignUp = (e) => {
     e.preventDefault();
-    if (recaptchaValue) {
-      // Handle login logic here
-    } else {
-      alert("Please complete the reCAPTCHA verification.");
-    }
+   console.log("Sign up clicked", { email, password });
+   navigate("/dashboard");
   };
 
   return (
@@ -41,12 +36,12 @@ const Account = () => {
                 </a>
               </p>
             </div>
-            <form className="mt-8 space-y-6" onSubmit={handleLogin}>
-              <div className="space-y-4">
+            <form className="mt-8 space-y-12" onSubmit={handleSignUp}>
+              <div className="space-y-8">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-md font-medium text-gray-700"
                   >
                     Full Name
                   </label>
@@ -57,14 +52,14 @@ const Account = () => {
                     autoComplete="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full h-[50px] px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     placeholder="Full Name"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-md font-medium text-gray-700"
                   >
                     Email address
                   </label>
@@ -76,14 +71,14 @@ const Account = () => {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full h-[50px] px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     placeholder="Email address"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="password"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-md font-medium text-gray-700"
                   >
                     Password
                   </label>
@@ -95,7 +90,7 @@ const Account = () => {
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full h-[50px] px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     placeholder="Password"
                   />
                 </div>
@@ -111,7 +106,7 @@ const Account = () => {
                   />
                   <label
                     htmlFor="remember_me"
-                    className="ml-2 block text-sm text-gray-900"
+                    className="ml-2 block text-md font-medium text-gray-900"
                   >
                     Remember me
                   </label>
@@ -127,17 +122,10 @@ const Account = () => {
                 </div>
               </div>
 
-              <div className="mt-4">
-                <ReCAPTCHA
-                  sitekey="YOUR_RECAPTCHA_SITE_KEY"
-                  onChange={handleRecaptchaChange}
-                />
-              </div>
-
               <div>
                 <button
                   type="submit"
-                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-md font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Sign Up
                 </button>
@@ -146,7 +134,7 @@ const Account = () => {
             <div className="mt-6">
               <button
                 type="button"
-                className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-md font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <FaGoogle className="mr-2" /> Sign up with Google
               </button>
@@ -154,7 +142,7 @@ const Account = () => {
             <div className="mt-2">
               <button
                 type="button"
-                className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="w-full inline-flex justify-center rounded-md border border-gray-300 bg-white py-3 px-4 text-md font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <FaFacebook className="mr-2" /> Sign up with Facebook
               </button>

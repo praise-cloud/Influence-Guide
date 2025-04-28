@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Sidebar from "../../components/dashboard/Sidebar";
+import Footer from "../../components/Footer";
 
 const Support = () => {
   const [formData, setFormData] = useState({

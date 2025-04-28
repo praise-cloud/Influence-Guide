@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Sidebar from "../../components/dashboard/Sidebar";
+import Footer from "../../components/Footer";
 
 const ProcessTransaction = () => {
   const location = useLocation();

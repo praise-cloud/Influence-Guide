@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import sidebarLinks from "../constant/sidebarLinks";
+import sidebarLinks from "../../constant/sidebarLinks";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -9,8 +9,8 @@ const Sidebar = () => {
 
   const handleLogout = () => {
     // Clear user session and token
-    localStorage.removeItem("userToken");
-    sessionStorage.removeItem("userSession");
+    // localStorage.removeItem("userToken");
+    // sessionStorage.removeItem("userSession");
 
     // Redirect to login page after logout
     navigate("/login");
@@ -33,7 +33,7 @@ const Sidebar = () => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:relative lg:w-64 lg:flex-shrink-0 lg:p-6 lg:m-5 lg:rounded-2xl`}
       >
-        <h2 className="text-2xl font-bold mb-4">Navigation</h2>
+        <h2 className="text-2xl font-bold mb-10">Influencers Guide</h2>
         <ul className="space-y-2">
           {sidebarLinks.map((link) => (
             <li key={link.name}>

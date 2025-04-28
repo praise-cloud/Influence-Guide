@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Layout from "./components/Layout";
+import Layout from "./components/dashboard/Layout";
 import LoadingScreen from "./components/LoadingScreen";
 import Navbar from "./components/Navbar";
 import { AppProvider } from "./context/AppContext";
-import "./components/LoadingScreen.css"; // Import the CSS file for the animation
 
 const App = () => {
   const [loading, setLoading] = useState(false);

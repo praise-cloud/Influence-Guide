@@ -6,7 +6,11 @@ const Footer = () => {
   const isDashboardPage = location.pathname === "/dashboard";
 
   return (
-    <footer className="bg-gray-800 text-white py-5">
+    <footer
+      className={`${
+        isDashboardPage ? "bg-transparent" : "bg-gray-800"
+      } ${isDashboardPage ? "text-gray-400" : "text-white"} py-5`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {isDashboardPage ? (
           <div className="flex justify-center">
@@ -16,7 +20,6 @@ const Footer = () => {
           <div className="flex flex-col items-center md:flex-row md:justify-between md:space-x-16">
             {/* Company Information */}
             <div className="mb-6 md:mb-0 text-center md:text-left">
-
               <h2 className="font-semibold mt-4 text-4xl">Influencers Guide</h2>
               <p className="mt-2 text-gray-400">
                 1234 Street Name, City, State, 12345
@@ -30,22 +33,28 @@ const Footer = () => {
                 <h2 className="text-xl font-semibold">Quick Links</h2>
                 <ul className="mt-2 space-y-2">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white">
+                    <a href="/" className="text-gray-400 hover:text-white">
                       Home
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white">
+                    <a href="/about" className="text-gray-400 hover:text-white">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white">
+                    <a
+                      href="/services"
+                      className="text-gray-400 hover:text-white"
+                    >
                       Services
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white">
+                    <a
+                      href="/contact"
+                      className="text-gray-400 hover:text-white"
+                    >
                       Contact
                     </a>
                   </li>

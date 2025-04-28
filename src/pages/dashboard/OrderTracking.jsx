@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import Sidebar from "../components/Sidebar";
-import { AppContext } from "../context/AppContext";
+import Sidebar from "../../components/dashboard/Sidebar";
+import { AppContext } from "../../context/AppContext";
 
 const OrderTracking = () => {
   const { state } = useContext(AppContext);

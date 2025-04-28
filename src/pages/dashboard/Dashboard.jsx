@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
-import services  from "../constant/services";
-import categories from "../constant/categories";
+import Sidebar from "../../components/dashboard/Sidebar";
+import services  from "../../constant/services";
+import categories from "../../constant/categories";
 import { FaShoppingCart, FaHeart } from "react-icons/fa";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 const Dashboard = () => {
   const { state, dispatch } = useContext(AppContext);
@@ -13,6 +13,7 @@ const Dashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [expandedService, setExpandedService] = useState(null);
   const navigate = useNavigate();
+
 
   const handleAddService = (service) => {
     if (!state.selectedServices.includes(service)) {
@@ -41,11 +42,15 @@ const Dashboard = () => {
     navigate("/wishlist", { state: { wishlistServices } });
   };
 
-  const filteredServices = services.filter(
-    (service) =>
-      service.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (selectedCategory ? service.category === selectedCategory : true),
-  );
+  const filteredServices = services.filter((service) => {
+    const title = service.title; // Get the title
+    const matchesSearchTerm =
+      title && title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory
+      ? service.category === selectedCategory
+      : true;
+    return matchesSearchTerm && matchesCategory;
+  });
 
   const calculateTotal = () => {
     return state.selectedServices.reduce((total, service) => {
@@ -144,21 +149,14 @@ const Dashboard = () => {
                   </h3>
                   {expandedService === service.id && (
                     <div className="mt-4">
+                      {service.icon}
                       <p className="text-base text-gray-600">
                         {service.description}
                       </p>
                       <p className="text-base text-gray-600">
-                        Rate: {service.rate}
+                        Category: {service.category}
                       </p>
-                      <p className="text-base text-gray-600">
-                        Min Order: {service.minOrder}
-                      </p>
-                      <p className="text-base text-gray-600">
-                        Max Order: {service.maxOrder}
-                      </p>
-                      <p className="text-base text-gray-600">
-                        Average Time: {service.averageTime}
-                      </p>
+
                       <div className="mt-4 flex justify-between">
                         <button
                           onClick={() => handleAddService(service)}

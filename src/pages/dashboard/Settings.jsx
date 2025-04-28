@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { PencilIcon } from "@heroicons/react/24/outline";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../../components/dashboard/Sidebar";
 
 const Settings = () => {
   const [profile, setProfile] = useState({

@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 import navigationItems from "../constant/NavigationItems";
 
-const Navbar = ({ openLoginModal }) => {
+const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ const Navbar = ({ openLoginModal }) => {
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
           aria-label="Global"
-          className="flex items-center justify-between p-6 lg:px-8"
+          className="flex items-center justify-between p-6 lg:px-12"
         >
           <div className="flex lg:flex-1">
             <a href="/" className="-m-1.5 p-1.5">
@@ -40,19 +40,11 @@ const Navbar = ({ openLoginModal }) => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm/6 font-semibold text-gray-900"
+                className="text-md font-semibold text-gray-900"
               >
                 {item.name}
               </a>
             ))}
-          </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center gap-x-4">
-            <button
-              onClick={openLoginModal}
-              className="text-sm/6 font-semibold text-gray-900"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </button>
           </div>
         </nav>
         <Dialog
@@ -63,7 +55,7 @@ const Navbar = ({ openLoginModal }) => {
           <div className="fixed inset-0 z-50" />
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <a href="/" className="-m-1.5 p-1.5">
                 <span className="flex">Influencer Guide</span>
               </a>
               <button
@@ -87,17 +79,6 @@ const Navbar = ({ openLoginModal }) => {
                       {item.name}
                     </a>
                   ))}
-                </div>
-                <div className="py-6">
-                  <button
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      openLoginModal();
-                    }}
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                  >
-                    Log in
-                  </button>
                 </div>
               </div>
             </div>

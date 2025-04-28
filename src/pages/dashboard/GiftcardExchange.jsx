@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
-import giftCardList from "../constant/giftCardList";
-import currencyList from "../constant/currencyList";
-import Footer from "../components/Footer";
-import { AppContext } from "../context/AppContext";
+import Sidebar from "../../components/dashboard/Sidebar";
+import giftCardList from "../../constant/giftCardList";
+import currencyList from "../../constant/currencyList";
+// import Footer from "../components/Footer";
+import { AppContext } from "../../context/AppContext";
 
 const GiftcardExchange = () => {
   const { state, dispatch } = useContext(AppContext);

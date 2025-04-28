@@ -9,17 +9,17 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Blog from "./pages/Blog";
 import Account from "./pages/Account";
-import Checkout from "./pages/Checkout";
-import Wishlist from "./pages/Wishlist";
+import Checkout from "./pages/dashboard/Checkout";
+import Wishlist from "./pages/dashboard/Wishlist";
 import Login from "./pages/Login";
 import BlogDetail from "./pages/BlogDetail";
-import Dashboard from "./pages/Dashboard";
-import Settings from "./pages/Settings";
-import Support from "./pages/Support";
-import Logout from "./pages/Logout";
-import GiftcardExchange from "./pages/GiftcardExchange";
-import ProcessTransaction from "./pages/ProcessTransaction";
-import OrderTracking from "./pages/OrderTracking";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Settings from "./pages/dashboard/Settings";
+import Support from "./pages/dashboard/Support";
+import Logout from "./pages/dashboard/Logout";
+import GiftcardExchange from "./pages/dashboard/GiftcardExchange";
+import ProcessTransaction from "./pages/dashboard/ProcessTransaction";
+import OrderTracking from "./pages/dashboard/OrderTracking";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -32,14 +32,14 @@ createRoot(document.getElementById("root")).render(
           <Route path="services" element={<Services />} />
           <Route path="blog" element={<Blog />} />
           <Route path="account" element={<Account />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="wishlist" element={<Wishlist />} />
+          <Route path="dashboard/checkout" element={<Checkout />} />
+          <Route path="dashboard/wishlist" element={<Wishlist />} />
           <Route path="login" element={<Login />} />
           <Route path="blog/:id" element={<BlogDetail />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="support" element={<Support />} />
-          <Route path="logout" element={<Logout />} />
+          <Route path="dashboard/settings" element={<Settings />} />
+          <Route path="dashboard/support" element={<Support />} />
+          <Route path="dashbaord/logout" element={<Logout />} />
           <Route path="giftcard-exchange" element={<GiftcardExchange />} />
           <Route path="process-transaction" element={<ProcessTransaction />} />
           <Route path="order-tracking" element={<OrderTracking />} />
